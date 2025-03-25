@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Title",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nibh consequat Quisque sodales luctus neque, non dictum turpis vehicula eu. Nunc ultrices, enim id gravida egestas, metus erat tincidunt ex, in venenatis nisl diam lacinia orci. Sed efficitur ultricies eros ac feugiat.",
+    "tech": "React, TypeScript, Styled Components",
+    "image": "/images/website1.png",
+    "website_link": "websitelink.com",
+    "github_link": "githublink.com",
+    "category": "school"
+  }
+]
