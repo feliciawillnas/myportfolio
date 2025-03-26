@@ -60,6 +60,7 @@ const Nav = styled.nav`
     @media (max-width: 768px) {
       display: ${({ open }) => (open ? "flex" : "none")};
       flex-direction: column;
+      gap: 0.8rem;
     }
   }
 

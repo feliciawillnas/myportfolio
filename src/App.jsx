@@ -4,6 +4,7 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -20,6 +21,7 @@ function App() {
         <Route path="/works" element={<Works />} />
         <Route path="/about" element={<About />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
