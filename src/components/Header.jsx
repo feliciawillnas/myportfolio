@@ -1,41 +1,32 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-export default function Header() {
+export default function Header({ currentPath }) {
   const [open, setOpen] = useState(false);
 
   return (
     <Main>
-      <Test>
-        {/* <HamburgerIcon onClick={() => setOpen(!open)} /> */}
+      <MobileFlexedNav>
         <HamburgerMenu onClick={() => setOpen(!open)}>
           {open ? "Close" : "Menu"}
         </HamburgerMenu>
         <Nav open={open}>
           <ul>
-            <li className="hover-underline-animation left">
-              <a href="/" onClick={() => setOpen(false)}>
-                Home
-              </a>
+            <li className={currentPath === "/" ? "active" : ""}>
+              <a href="/">Home</a>
             </li>
-            <li className="hover-underline-animation left">
-              <a href="/contact" onClick={() => setOpen(false)}>
-                Contact
-              </a>
+            <li className={currentPath === "/contact" ? "active" : ""}>
+              <a href="/contact">Contact</a>
             </li>
-            <li className="hover-underline-animation left">
-              <a href="/about" onClick={() => setOpen(false)}>
-                About
-              </a>
+            <li className={currentPath === "/about" ? "active" : ""}>
+              <a href="/about">About</a>
             </li>
-            <li className="hover-underline-animation left">
-              <a href="/works" onClick={() => setOpen(false)}>
-                Works
-              </a>
+            <li className={currentPath === "/works" ? "active" : ""}>
+              <a href="/works">Works</a>
             </li>
           </ul>
         </Nav>
-      </Test>
+      </MobileFlexedNav>
     </Main>
   );
 }
@@ -43,16 +34,16 @@ export default function Header() {
 const Main = styled.header`
   position: absolute;
   top: 0;
+  width: 100%;
   padding: 3rem;
   font-family: "Source Code Pro", monospace;
   letter-spacing: 0.04rem;
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
-  width: 100%;
 `;
 
-const Test = styled.div`
+const MobileFlexedNav = styled.div`
   @media (max-width: 768px) {
     display: flex;
     flex-direction: row-reverse;
@@ -69,7 +60,6 @@ const Nav = styled.nav`
     @media (max-width: 768px) {
       display: ${({ open }) => (open ? "flex" : "none")};
       flex-direction: column;
-      /* margin-top: 2rem; */
     }
   }
 
@@ -79,51 +69,17 @@ const Nav = styled.nav`
       background-color: #000;
       color: white;
     }
-  }
 
-  /* .hover-underline-animation {
-    display: inline-block;
-    position: relative;
+    &.active {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
   }
-
-  .hover-underline-animation::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 1.5px;
-    bottom: -2px;
-    left: 0;
-    background-color: black;
-    transition: transform 0.25s ease-out;
-  }
-
-  .hover-underline-animation:hover::after {
-    transform: scaleX(1);
-  }
-
-  .hover-underline-animation.left::after {
-    transform-origin: bottom right;
-  }
-
-  .hover-underline-animation.left:hover::after {
-    transform-origin: bottom left;
-  } */
 
   a {
     color: #000;
   }
 `;
-
-// const HamburgerIcon = styled(GiHamburgerMenu)`
-//   display: none;
-//   font-size: 1rem;
-//   cursor: pointer;
-
-//   @media (max-width: 768px) {
-//     display: block;
-//   }
-// `;
 
 const HamburgerMenu = styled.span`
   display: none;
