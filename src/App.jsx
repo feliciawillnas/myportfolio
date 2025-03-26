@@ -33,7 +33,7 @@ function App() {
           <Route path="/works" element={<Works />} />
           <Route path="/about" element={<About />} />
         </Routes>
-        <Footer toggleTheme={toggleTheme} />
+        <Footer toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
       </Router>
     </ThemeProvider>
   );

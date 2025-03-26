@@ -37,11 +37,10 @@ const Main = styled.header`
   top: 0;
   width: 100%;
   padding: 3rem;
-  font-family: "Source Code Pro", monospace;
-  letter-spacing: 0.04rem;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const MobileFlexedNav = styled.div`
@@ -55,7 +54,6 @@ const MobileFlexedNav = styled.div`
 const Nav = styled.nav`
   ul {
     display: flex;
-    list-style: none;
     gap: 3rem;
 
     @media (max-width: 768px) {
@@ -67,7 +65,6 @@ const Nav = styled.nav`
 
   li {
     :hover {
-      cursor: pointer;
       background-color: #000;
       color: white;
     }
@@ -77,15 +74,12 @@ const Nav = styled.nav`
       text-underline-offset: 5px;
     }
   }
-
-  a {
-    color: ${({ theme }) => theme.text};
-  }
 `;
 
-const HamburgerMenu = styled.span`
+const HamburgerMenu = styled.p`
   display: none;
-  cursor: pointer;
+  text-transform: uppercase;
+  cursor: pointer; // funkar inte
 
   @media (max-width: 768px) {
     display: block;
