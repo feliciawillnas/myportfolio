@@ -1,28 +1,41 @@
+import { useState } from "react";
 import {
   Route,
   BrowserRouter as Router,
   Routes,
   useLocation,
 } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import { GlobalStyles } from "./GlobalStyles";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Works from "./pages/Works";
+import { darkTheme, lightTheme } from "./theme";
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    setIsDarkMode((prev) => !prev);
+  };
+
   return (
-    <Router>
-      <HeaderPathProp />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/works" element={<Works />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      <GlobalStyles />
+      <Router>
+        <HeaderPathProp />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/works" element={<Works />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+        <Footer toggleTheme={toggleTheme} />
+      </Router>
+    </ThemeProvider>
   );
 }
 

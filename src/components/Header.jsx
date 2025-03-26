@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 
 export default function Header({ currentPath }) {
   const [open, setOpen] = useState(false);
+  const theme = useTheme();
 
   return (
     <Main>
@@ -78,7 +79,7 @@ const Nav = styled.nav`
   }
 
   a {
-    color: #000;
+    color: ${({ theme }) => theme.text};
   }
 `;
 

@@ -1,17 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Footer() {
+export default function Footer({ toggleTheme }) {
   return (
     <Main>
       <FlexedDiv>
+        {/* <div>
+          <p>socials</p>
+          <p>gitHub</p>
+          <p>linkedIn</p>
+        </div> */}
         <div>
-          <p>Socials</p>
-          <p>Github</p>
-          <p>LinkedIn</p>
-        </div>
-        <div>
-          <p>Dark mode</p>
+          <p onClick={toggleTheme}>darkMode: off</p>
         </div>
       </FlexedDiv>
     </Main>
@@ -25,7 +25,7 @@ const Main = styled.footer`
   letter-spacing: 0.04rem;
   font-size: 14px;
   font-weight: 400;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   padding: 0rem 3rem 1rem 3rem;
 `;
 
