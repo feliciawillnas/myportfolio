@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import CurrentDate from "./CurrentDate";
 
 export default function Footer({ toggleTheme, isDarkMode }) {
   return (
@@ -16,10 +17,17 @@ export default function Footer({ toggleTheme, isDarkMode }) {
             </li>
           </ul>
         </Socials>
-        <DarkmodeToggle onClick={toggleTheme}>
-          <p>darkMode:{isDarkMode ? " on " : " off"}</p>
-        </DarkmodeToggle>
-        <p>Nothing right now</p>
+        <div>
+          <p>'</p>
+          <CurrentDate />
+          <DarkmodeToggle onClick={toggleTheme}>
+            <p>darkMode:{isDarkMode ? " on " : " off"}</p>
+          </DarkmodeToggle>
+        </div>
+        <Contact>
+          <h4>contact</h4>
+          <p>felicia@gmail.com</p>
+        </Contact>
       </Grid>
     </Main>
   );
@@ -65,19 +73,14 @@ const Socials = styled.div`
   text-transform: uppercase;
 `;
 
-// const DarkmodeToggle = styled.button`
-//   background: green;
-//   cursor: pointer;
-//   border: none;
-//   height: fit-content;
-//   display: flex;
-//   width: 100%;
+const Contact = styled.div`
+  display: flex;
+  flex-direction: column;
 
-//   :hover {
-//     background-color: ${({ theme }) => theme.secondary};
-//     color: ${({ theme }) => theme.primary};
-//   }
-// `;
+  h4 {
+    text-transform: uppercase;
+  }
+`;
 
 const DarkmodeToggle = styled.div`
   cursor: pointer;
