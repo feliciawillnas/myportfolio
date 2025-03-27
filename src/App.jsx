@@ -16,10 +16,16 @@ import Works from "./pages/Works";
 import { darkTheme, lightTheme } from "./theme";
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem("darkMode") === "true";
+  });
 
   const toggleTheme = () => {
-    setIsDarkMode((prev) => !prev);
+    setIsDarkMode((prev) => {
+      const themeState = !prev;
+      localStorage.setItem("darkMode", themeState);
+      return themeState;
+    });
   };
 
   return (
