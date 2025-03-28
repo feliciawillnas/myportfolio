@@ -4,7 +4,7 @@
     "title": "Title",
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nibh consequat Quisque sodales luctus neque, non dictum turpis vehicula eu. Nunc ultrices, enim id gravida egestas, metus erat tincidunt ex, in venenatis nisl diam lacinia orci. Sed efficitur ultricies eros ac feugiat.",
     "tech": "React, TypeScript, Styled Components",
-    "image": "/images/website1.png",
+    "image": "/assets/webpage.png",
     "website_link": "websitelink.com",
     "github_link": "githublink.com",
     "category": "school"
@@ -14,7 +14,7 @@
     "title": "Title 2",
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nibh consequat Quisque sodales luctus neque, non dictum turpis vehicula eu. Nunc ultrices, enim id gravida egestas, metus erat tincidunt ex, in venenatis nisl diam lacinia orci. Sed efficitur ultricies eros ac feugiat.",
     "tech": "React, JavaScript",
-    "image": "/images/website1.png",
+    "image": "/assets/webpage.png",
     "website_link": "websitelink.com",
     "github_link": "githublink.com",
     "category": "school"
@@ -24,7 +24,7 @@
     "title": "Title 3",
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nibh consequat Quisque sodales luctus neque, non dictum turpis vehicula eu. Nunc ultrices, enim id gravida egestas, metus erat tincidunt ex, in venenatis nisl diam lacinia orci. Sed efficitur ultricies eros ac feugiat.",
     "tech": "Vue, TypeScript, MUI",
-    "image": "/images/website1.png",
+    "image": "/assets/webpage.png",
     "website_link": "websitelink.com",
     "github_link": "githublink.com",
     "category": "school"

@@ -1,9 +1,29 @@
+import { motion } from "framer-motion";
 import React, { useState } from "react";
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 
 export default function Header({ currentPath }) {
   const [open, setOpen] = useState(false);
-  const theme = useTheme();
+
+  // const menuVariants = {
+  //   hidden: { x: "100%" },
+  //   visible: {
+  //     x: 0,
+  //     transition: { staggerChildren: 0.2, when: "beforeChildren" },
+  //   },
+  // };
+
+  // const linkVariants = {
+  //   hidden: { x: 50, opacity: 0 },
+  //   visible: { x: 0, opacity: 1 },
+  // };
+
+  const navItems = [
+    { id: "home", label: "home", path: "/" },
+    { id: "contact", label: "contact", path: "/contact" },
+    { id: "about", label: "about", path: "/about" },
+    { id: "works", label: "works", path: "/works" },
+  ];
 
   return (
     <Main>
@@ -11,20 +31,29 @@ export default function Header({ currentPath }) {
         <HamburgerMenu onClick={() => setOpen(!open)}>
           {open ? "Close" : "Menu"}
         </HamburgerMenu>
-        <Nav open={open}>
+        <Nav
+          open={open}
+          // as={motion.nav}
+          // initial="hidden"
+          // animate="visible"
+          // exit="hidden"
+          // variants={menuVariants}
+        >
           <ul>
-            <li className={currentPath === "/" ? "active" : ""}>
-              <a href="/">Home</a>
-            </li>
-            <li className={currentPath === "/contact" ? "active" : ""}>
-              <a href="/contact">Contact</a>
-            </li>
-            <li className={currentPath === "/about" ? "active" : ""}>
-              <a href="/about">About</a>
-            </li>
-            <li className={currentPath === "/works" ? "active" : ""}>
-              <a href="/works">Works</a>
-            </li>
+            {navItems.map((item) => (
+              <motion.li
+              // variants={linkVariants}
+              >
+                <a
+                  key={item.id}
+                  to={item.path}
+                  className={currentPath === item.path ? "active" : ""}
+                  href={item.path}
+                >
+                  {item.label}
+                </a>
+              </motion.li>
+            ))}
           </ul>
         </Nav>
       </MobileFlexedNav>
@@ -39,7 +68,7 @@ const Main = styled.header`
   padding: 3rem;
 
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: 1.1rem;
   }
 `;
 
@@ -52,6 +81,8 @@ const MobileFlexedNav = styled.div`
 `;
 
 const Nav = styled.nav`
+  width: 100%;
+
   ul {
     display: flex;
     gap: 3rem;
@@ -59,27 +90,28 @@ const Nav = styled.nav`
     @media (max-width: 768px) {
       display: ${({ open }) => (open ? "flex" : "none")};
       flex-direction: column;
-      gap: 0.8rem;
+      gap: 0rem;
     }
   }
 
   li {
-    :hover {
-      background-color: #000;
-      color: white;
+    @media (max-width: 768px) {
+      :hover {
+        background-color: #000;
+        color: white;
+      }
     }
-
-    &.active {
-      text-decoration: underline;
-      text-underline-offset: 5px;
-    }
+  }
+  // Inte nödvändig
+  a {
+    display: block;
   }
 `;
 
 const HamburgerMenu = styled.p`
   display: none;
   text-transform: uppercase;
-  cursor: pointer; // funkar inte
+  cursor: pointer;
 
   @media (max-width: 768px) {
     display: block;
