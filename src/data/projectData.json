@@ -1,18 +1,18 @@
 [
   {
     "id": 1,
-    "title": "Title",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nibh consequat Quisque sodales luctus neque, non dictum turpis vehicula eu. Nunc ultrices, enim id gravida egestas, metus erat tincidunt ex, in venenatis nisl diam lacinia orci. Sed efficitur ultricies eros ac feugiat.",
-    "tech": "React, TypeScript, Styled Components",
-    "image": "/assets/webpage.png",
+    "title": "Restaurang",
+    "text": "Website for a restaurant in Stockholm. I created the logotype and designed the website.",
+    "tech": "-",
+    "image": "/assets/webpage2.png",
     "website_link": "websitelink.com",
     "github_link": "githublink.com",
     "category": "school"
   },
   {
     "id": 2,
-    "title": "Title 2",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nibh consequat Quisque sodales luctus neque, non dictum turpis vehicula eu. Nunc ultrices, enim id gravida egestas, metus erat tincidunt ex, in venenatis nisl diam lacinia orci. Sed efficitur ultricies eros ac feugiat.",
+    "title": "Second project",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
     "tech": "React, JavaScript",
     "image": "/assets/webpage.png",
     "website_link": "websitelink.com",
@@ -21,8 +21,8 @@
   },
   {
     "id": 3,
-    "title": "Title 3",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nibh consequat Quisque sodales luctus neque, non dictum turpis vehicula eu. Nunc ultrices, enim id gravida egestas, metus erat tincidunt ex, in venenatis nisl diam lacinia orci. Sed efficitur ultricies eros ac feugiat.",
+    "title": "Third project",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
     "tech": "Vue, TypeScript, MUI",
     "image": "/assets/webpage.png",
     "website_link": "websitelink.com",

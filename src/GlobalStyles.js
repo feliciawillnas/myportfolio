@@ -1,7 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-/* @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"); */
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
 
   * {
     margin: 0;
@@ -71,6 +75,10 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   ul {
+    list-style: none;
+  }
+
+  li {
     list-style: none;
   }
 `;
