@@ -39,15 +39,26 @@ function App() {
           <Route path="/works" element={<Works />} />
           <Route path="/about" element={<About />} />
         </Routes>
-        <Footer toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+        <FooterPathProp />
       </Router>
     </ThemeProvider>
   );
 }
 
+// function PathPropWrapper({ Component }) {
+//   const location = useLocation();
+//   return <Component currentPath={location.pathname} />;
+// }
+
+// make into one function
 function HeaderPathProp() {
   const location = useLocation();
   return <Header currentPath={location.pathname} />;
+}
+
+function FooterPathProp() {
+  const location = useLocation();
+  return <Footer currentPath={location.pathname} />;
 }
 
 export default App;

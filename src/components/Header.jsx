@@ -5,23 +5,10 @@ import styled from "styled-components";
 export default function Header({ currentPath }) {
   const [open, setOpen] = useState(false);
 
-  // const menuVariants = {
-  //   hidden: { x: "100%" },
-  //   visible: {
-  //     x: 0,
-  //     transition: { staggerChildren: 0.2, when: "beforeChildren" },
-  //   },
-  // };
-
-  // const linkVariants = {
-  //   hidden: { x: 50, opacity: 0 },
-  //   visible: { x: 0, opacity: 1 },
-  // };
-
   const navItems = [
     { id: "home", label: "home", path: "/" },
     { id: "contact", label: "contact", path: "/contact" },
-    { id: "about", label: "about", path: "/about" },
+    // { id: "about", label: "about", path: "/about" },
     { id: "works", label: "works", path: "/works" },
   ];
 
@@ -31,19 +18,10 @@ export default function Header({ currentPath }) {
         <HamburgerMenu onClick={() => setOpen(!open)}>
           {open ? "Close" : "Menu"}
         </HamburgerMenu>
-        <Nav
-          open={open}
-          // as={motion.nav}
-          // initial="hidden"
-          // animate="visible"
-          // exit="hidden"
-          // variants={menuVariants}
-        >
+        <Nav open={open}>
           <ul>
             {navItems.map((item) => (
-              <motion.li
-              // variants={linkVariants}
-              >
+              <motion.li key={item.id}>
                 <a
                   key={item.id}
                   to={item.path}
@@ -62,13 +40,13 @@ export default function Header({ currentPath }) {
 }
 
 const Main = styled.header`
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
-  padding: 3rem;
+  padding: 1rem;
 
   @media (max-width: 768px) {
-    padding: 1.1rem;
+    padding: 0.7rem;
   }
 `;
 
@@ -90,19 +68,26 @@ const Nav = styled.nav`
     @media (max-width: 768px) {
       display: ${({ open }) => (open ? "flex" : "none")};
       flex-direction: column;
-      gap: 0rem;
+      gap: 0.1rem;
     }
   }
 
   li {
-    @media (max-width: 768px) {
-      :hover {
-        background-color: #000;
-        color: white;
-      }
+    display: block;
+
+    :hover {
+      background-color: #000;
+      color: white;
+    }
+
+    .active {
+      /* color: green; */
+      /* font-weight: 700; */
+      /* background-color: #000;
+      color: white; */
     }
   }
-  // Inte nödvändig
+
   a {
     display: block;
   }
