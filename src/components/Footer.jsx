@@ -1,24 +1,31 @@
 import React from "react";
+import { RiExternalLinkFill } from "react-icons/ri";
 import styled from "styled-components";
 import CurrentDate from "./CurrentDate";
 
-export default function Footer({ toggleTheme, isDarkMode }) {
+export default function Footer({ toggleTheme, isDarkMode, currentPath }) {
   return (
-    <Main>
+    <Main $isWorksPage={currentPath === "/works"}>
       <Grid>
         <Socials>
           <h4>socials</h4>
           <ul>
             <li>
-              <a href="/">github</a>
+              <a href="github.com/feliciawillnas">
+                github
+                <RiExternalLinkFill />
+              </a>
             </li>
             <li>
-              <a href="/">linkedin</a>
+              <a href="/">
+                linkedin
+                <RiExternalLinkFill />
+              </a>
             </li>
           </ul>
         </Socials>
         <div>
-          <p>'</p>
+          <p>&nbsp;</p>
           <CurrentDate />
           <DarkmodeToggle onClick={toggleTheme}>
             <p>darkMode:{isDarkMode ? " on " : " off"}</p>
@@ -34,13 +41,13 @@ export default function Footer({ toggleTheme, isDarkMode }) {
 }
 
 const Main = styled.footer`
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  padding: 3rem;
+  padding: 1rem;
+  bottom: 0;
+  position: ${({ $isWorksPage }) => ($isWorksPage ? "relative" : "absolute")};
 
   @media (max-width: 768px) {
-    padding: 1.1rem;
+    padding: 0.7rem;
   }
 
   li {
@@ -48,15 +55,12 @@ const Main = styled.footer`
       background-color: ${({ theme }) => theme.secondary};
       color: ${({ theme }) => theme.primary};
     }
-
-    &.active {
-      text-decoration: underline;
-      text-underline-offset: 5px;
-    }
   }
 
   a {
-    display: block;
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
   }
 `;
 

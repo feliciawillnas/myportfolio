@@ -48,15 +48,14 @@ export default function Works() {
 }
 
 const Main = styled.main`
-  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
   padding: 1rem;
   margin-top: 5rem;
+  gap: 3rem;
+  width: 100%;
 
   @media (max-width: 768px) {
-    gap: 3rem;
     padding: 0.7rem;
   }
 `;
@@ -70,7 +69,7 @@ const ProjectImageText = styled.div`
   a {
     display: flex;
     color: #f0f0f0;
-    gap: 0.2rem;
+    gap: 0.5rem;
     align-items: center;
   }
 `;
@@ -107,6 +106,12 @@ const ProjectWrapper = styled.div`
 const FlexedDiv = styled.div`
   display: flex;
   flex-direction: column;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
 
   li {
     :hover {
