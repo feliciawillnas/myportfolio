@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Route,
   BrowserRouter as Router,
@@ -15,7 +15,7 @@ import Home from "./pages/Home";
 import Works from "./pages/Works";
 import { darkTheme, lightTheme } from "./theme";
 
-function App() {
+export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     return localStorage.getItem("darkMode") === "true";
   });
@@ -39,26 +39,25 @@ function App() {
           <Route path="/works" element={<Works />} />
           <Route path="/about" element={<About />} />
         </Routes>
-        <FooterPathProp />
+        <FooterPathProp toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
       </Router>
     </ThemeProvider>
   );
 }
 
-// function PathPropWrapper({ Component }) {
-//   const location = useLocation();
-//   return <Component currentPath={location.pathname} />;
-// }
-
-// make into one function
 function HeaderPathProp() {
   const location = useLocation();
   return <Header currentPath={location.pathname} />;
 }
 
-function FooterPathProp() {
+function FooterPathProp({ toggleTheme, isDarkMode }) {
   const location = useLocation();
-  return <Footer currentPath={location.pathname} />;
-}
 
-export default App;
+  return (
+    <Footer
+      currentPath={location.pathname}
+      toggleTheme={toggleTheme}
+      isDarkMode={isDarkMode}
+    />
+  );
+}
