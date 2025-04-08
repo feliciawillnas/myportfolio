@@ -11,13 +11,21 @@ export default function Footer({ toggleTheme, isDarkMode, currentPath }) {
           <h4>socials</h4>
           <ul>
             <li>
-              <a href="github.com/feliciawillnas">
+              <a
+                href="https://github.com/feliciawillnas"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 github
                 <RiExternalLinkFill />
               </a>
             </li>
             <li>
-              <a href="/">
+              <a
+                href="https://linkedin.com/in/feliciawillnas/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 linkedin
                 <RiExternalLinkFill />
               </a>
