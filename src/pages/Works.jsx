@@ -1,6 +1,7 @@
 import React from "react";
 import { RiExternalLinkFill } from "react-icons/ri";
 import styled from "styled-components";
+import PixelImage from "../components/PixelImage";
 import projectData from "../data/projectData.json";
 
 export default function Works() {
@@ -33,7 +34,14 @@ export default function Works() {
             </FlexedDiv>
           </ProjectWrapper>
           <ProjectImageWrapper>
-            <img src={project.image} alt="image not found" />
+            <PixelImage
+              // className="project-canvas"
+              src={project.image}
+              width={1000}
+              height={500}
+            />
+            {/* <PixelImage src={project.image} /> */}
+            {/* <img src={project.image} alt="image not found" /> */}
             <ProjectImageText>
               <a href="/">
                 Visit page
