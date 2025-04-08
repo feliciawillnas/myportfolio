@@ -17,31 +17,26 @@ export default function Works() {
               <h4>Details</h4>
             </FlexedDiv>
             <FlexedDiv>
-              <li>
-                <a href={project.website_link}>
-                  View site
-                  <RiExternalLinkFill />
-                </a>
-              </li>
-              <li>
-                <a href={project.github_link}>
-                  View on github
-                  <RiExternalLinkFill />
-                </a>
-              </li>
+              <ul>
+                <li>
+                  <a href={project.website_link}>
+                    View site
+                    <RiExternalLinkFill />
+                  </a>
+                </li>
+                <li>
+                  <a href={project.github_link}>
+                    View on github
+                    <RiExternalLinkFill />
+                  </a>
+                </li>
+              </ul>
               <p>{project.tech}</p>
               <p>{project.text}</p>
             </FlexedDiv>
           </ProjectWrapper>
           <ProjectImageWrapper>
-            <PixelImage
-              // className="project-canvas"
-              src={project.image}
-              width={1000}
-              height={500}
-            />
-            {/* <PixelImage src={project.image} /> */}
-            {/* <img src={project.image} alt="image not found" /> */}
+            <PixelImage src={project.image} />
             <ProjectImageText>
               <a href="/">
                 Visit page
