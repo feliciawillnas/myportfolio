@@ -29,7 +29,7 @@ html, body, #root {
   }
 
   h2 {
-    font-family: "Press Start 2P", system-ui;
+    font-family: "DotGothic16", sans-serif;
   }
 
   h4 {
