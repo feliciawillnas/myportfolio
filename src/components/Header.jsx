@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import React, { useState } from "react";
 import styled from "styled-components";
 
@@ -21,7 +20,7 @@ export default function Header({ currentPath }) {
         <Nav open={open}>
           <ul>
             {navItems.map((item) => (
-              <motion.li key={item.id}>
+              <li key={item.id}>
                 <a
                   key={item.id}
                   to={item.path}
@@ -30,7 +29,7 @@ export default function Header({ currentPath }) {
                 >
                   {item.label}
                 </a>
-              </motion.li>
+              </li>
             ))}
           </ul>
         </Nav>
@@ -44,6 +43,7 @@ const Main = styled.header`
   top: 0;
   width: 100%;
   padding: 1rem;
+  z-index: 999;
 
   @media (max-width: 768px) {
     padding: 0.7rem;
@@ -63,7 +63,10 @@ const Nav = styled.nav`
 
   ul {
     display: flex;
-    gap: 3rem;
+    /* flex-direction: row; */
+    flex-direction: column;
+    gap: 0.1rem;
+    /* gap: 3rem; */
 
     @media (max-width: 768px) {
       display: ${({ open }) => (open ? "flex" : "none")};
@@ -76,15 +79,14 @@ const Nav = styled.nav`
     display: block;
 
     :hover {
-      background-color: #000;
-      color: white;
+      background-color: ${({ theme }) => theme.secondary};
+      color: ${({ theme }) => theme.primary};
     }
 
     .active {
-      /* color: green; */
-      /* font-weight: 700; */
-      /* background-color: #000;
-      color: white; */
+      /* text-decoration: underline; */
+      /* text-underline-offset: 0.1rem; */
+      /* text-decoration-thickness: 1.2px; */
     }
   }
 
