@@ -40,6 +40,7 @@ export default function Header({ currentPath }) {
 
 const Main = styled.header`
   position: fixed;
+  mix-blend-mode: difference;
   top: 0;
   width: 100%;
   padding: 1rem;
@@ -66,6 +67,7 @@ const Nav = styled.nav`
     /* flex-direction: row; */
     flex-direction: column;
     gap: 0.1rem;
+
     /* gap: 3rem; */
 
     @media (max-width: 768px) {
@@ -92,6 +94,8 @@ const Nav = styled.nav`
 
   a {
     display: block;
+    mix-blend-mode: difference;
+    color: white;
   }
 `;
 
