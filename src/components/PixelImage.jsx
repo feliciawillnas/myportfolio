@@ -35,7 +35,10 @@ const PixelImage = ({ src }) => {
       ctx.imageSmoothingEnabled = false; // Disable image smoothing for pixelation
 
       // Draw the image at the scaled resolution (this causes the pixelation effect)
+      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      // Fix error: Failed to execute 'drawImage' on 'CanvasRenderingContext2D': The image argument is a canvas element with a width or height of 0.
       ctx.drawImage(image, 0, 0, scaledWidth, scaledHeight);
+      //   console.log("scaledWidth: ", scaledWidth, "scaledHeight: ", scaledHeight);
 
       // Draw the previous canvas on top to create the progressive reveal effect
       ctx.drawImage(
@@ -52,6 +55,9 @@ const PixelImage = ({ src }) => {
     };
 
     // Function to progressively reveal the image (increase pixelation)
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // This function is called repeatedly using requestAnimationFrame
+    // Error: [Violation] 'requestAnimationFrame' handler took <N>ms
     const reveal = () => {
       // Increase the percent until it reaches 1 (fully revealed)
       percent = Math.min(percent + (percent < 0.1 ? 0.005 : 0.5), 1);

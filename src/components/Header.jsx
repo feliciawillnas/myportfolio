@@ -40,11 +40,11 @@ export default function Header({ currentPath }) {
 
 const Main = styled.header`
   position: fixed;
-  mix-blend-mode: difference;
   top: 0;
   width: 100%;
   padding: 1rem;
   z-index: 999;
+  mix-blend-mode: difference;
 
   @media (max-width: 768px) {
     padding: 0.7rem;
@@ -67,8 +67,6 @@ const Nav = styled.nav`
     /* flex-direction: row; */
     flex-direction: column;
     gap: 0.1rem;
-
-    /* gap: 3rem; */
 
     @media (max-width: 768px) {
       display: ${({ open }) => (open ? "flex" : "none")};
@@ -94,8 +92,12 @@ const Nav = styled.nav`
 
   a {
     display: block;
-    mix-blend-mode: difference;
     color: white;
+
+    // Funkar inte, måste fixa
+    /* :hover {
+      mix-blend-mode: normal;
+    } */
   }
 `;
 

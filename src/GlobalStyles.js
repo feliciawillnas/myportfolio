@@ -18,7 +18,7 @@ html, body, #root {
   }
 
   /* Typography */
-  h1, h2, h3, h4, h5, h6, span, p {
+  h1, h2, h3, h4, h5, span, p {
     color: ${({ theme }) => theme.text};
   }
 
@@ -26,31 +26,46 @@ html, body, #root {
     font-family: "Source Code Pro", monospace;
     letter-spacing: 0.04rem;
     font-weight: 700;
+    font-size: 22px;
+
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
   }
 
   h2 {
-    font-family: "DotGothic16", sans-serif;
+    font-family: "Source Code Pro", monospace;
+    font-weight: 600;
+    /* font-family: "DotGothic16", sans-serif; */
   }
 
   h4 {
     font-family: "Source Code Pro", monospace;
-    font-size: 14px;
+    font-size: 15px;
     letter-spacing: 0.04rem;
     font-weight: 400;
-
+    
     @media (max-width: 768px) {
       font-size: 13px;
     }
   }
+  
+  h6 {
+    font-family: "Source Code Pro", monospace;
+    font-weight: 400;
+    font-size: 15px;
+    /* color: ${({ theme }) => theme.primary}; */
+    color: ${({ theme }) => theme.text};
+  }
 
   span {
     font-family: "Inter", sans-serif;
-    font-size: 14px;
+    font-size: 15px;
   }
 
   p {
     font-family: "Source Code Pro", monospace;
-    font-size: 14px;
+    font-size: 15px;
     letter-spacing: 0.04rem;
     font-weight: 400;
 
@@ -62,7 +77,7 @@ html, body, #root {
   a {
     font-family: "Source Code Pro", monospace;
     color: ${({ theme }) => theme.text};
-    font-size: 14px;
+    font-size: 15px;
     letter-spacing: 0.04rem;
     text-decoration: none;
     text-transform: uppercase;
