@@ -34,9 +34,14 @@ html, body, #root {
   }
 
   h2 {
-    font-family: "Source Code Pro", monospace;
-    font-weight: 600;
-    /* font-family: "DotGothic16", sans-serif; */
+    font-family: "Quicksand", sans-serif;
+    font-size: 50px;
+    letter-spacing: 0.3rem;
+    line-height: 1.1;
+
+    @media (max-width: 768px) {
+      font-size: 30px;
+    }
   }
 
   h4 {
@@ -95,5 +100,18 @@ html, body, #root {
 
   li {
     list-style: none;
+  }
+
+  pre {
+    font-size: 12px;
+    letter-spacing: 0.005rem;
+    font-weight: 700;
+    overflow-x: auto;
+
+    color: ${({ theme }) => theme.text};
+
+    @media (max-width: 768px) {
+      font-size: 4px;
+    }
   }
 `;

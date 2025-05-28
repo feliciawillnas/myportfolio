@@ -1,6 +1,7 @@
 import React from "react";
 import { RiExternalLinkFill } from "react-icons/ri";
 import styled from "styled-components";
+import AsciiArt from "../components/AsciiArt";
 
 export default function Contact() {
   return (
@@ -14,10 +15,12 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span>
+              <LinkStyling>
                 <h2>LinkedIn</h2>
-                <RiExternalLinkFill />
-              </span>
+                <h2>
+                  <RiExternalLinkFill />
+                </h2>
+              </LinkStyling>
             </a>
           </li>
           <li>
@@ -26,20 +29,34 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span>
+              <LinkStyling>
                 <h2>GitHub</h2>
-                <RiExternalLinkFill />
-              </span>
+                <h2>
+                  <RiExternalLinkFill />
+                </h2>
+              </LinkStyling>
             </a>
           </li>
         </ul>
       </Content>
+      <Wrapper>
+        <AsciiArt />
+      </Wrapper>
     </Main>
   );
 }
 
 const Main = styled.main`
   /* height: 100vh; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
 `;
 
 const Content = styled.div`
@@ -48,7 +65,7 @@ const Content = styled.div`
   padding: 0 1rem;
   gap: 3rem;
 
-  padding-top: 7rem;
+  /* padding-top: 7rem; */
 
   a {
     text-transform: lowercase;
@@ -58,28 +75,27 @@ const Content = styled.div`
     }
   }
 
-  span {
-    display: flex;
-    align-items: center;
-
-    // Icon size
-    font-size: 3rem;
-    gap: 0.5rem;
-  }
-
   h2 {
-    font-size: 3rem;
-    letter-spacing: 0.3rem;
-    line-height: 1.1;
     overflow-wrap: break-word;
     width: fit-content;
 
     &:hover {
       cursor: pointer;
     }
+  }
+`;
 
-    @media (max-width: 768px) {
-      font-size: 2.5rem;
-    }
+const LinkStyling = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+const Wrapper = styled.div`
+  height: 100vh;
+  padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    height: fit-content;
   }
 `;
