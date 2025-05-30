@@ -1,12 +1,14 @@
 import React from "react";
 import { RiExternalLinkFill } from "react-icons/ri";
 import styled from "styled-components";
+import Categories from "../components/Categories";
 import PixelImage from "../components/PixelImage";
 import projectData from "../data/projectData.json";
 
 export default function Works() {
   return (
     <Main>
+      <Categories />
       {projectData.map((project) => (
         <div key={project.id}>
           <ProjectWrapper>
@@ -125,5 +127,6 @@ const FlexedDiv = styled.div`
 
   h4 {
     text-transform: uppercase;
+    color: ${({ theme }) => theme.text};
   }
 `;
