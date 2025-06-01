@@ -11,6 +11,7 @@ export default function Works() {
       <Categories />
       {projectData.map((project) => (
         <div key={project.id}>
+          <h4>0{project.id}</h4>
           <ProjectWrapper>
             <FlexedDiv>
               <h4>{project.title}</h4>
@@ -46,6 +47,16 @@ export default function Works() {
               </a>
             </ProjectImageText>
           </ProjectImageWrapper>
+          <ImageWrapper>
+            {project.thumbnailFirst && (
+              <img src={project.thumbnailFirst} alt="" />
+            )}
+            {project.thumbnailSecond && (
+              <img src={project.thumbnailSecond} alt="" />
+            )}
+            {/* <PixelImage src={project.thumbnail_one} /> */}
+            {/* <PixelImage src={project.thumbnail_two} /> */}
+          </ImageWrapper>
         </div>
       ))}
     </Main>
@@ -128,5 +139,20 @@ const FlexedDiv = styled.div`
   h4 {
     text-transform: uppercase;
     color: ${({ theme }) => theme.text};
+  }
+`;
+
+const ImageWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+
+  img {
+    margin-top: 2rem;
+    width: auto;
+    height: 40vw;
+    object-fit: cover;
   }
 `;

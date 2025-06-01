@@ -1,10 +1,12 @@
 [
   {
     "id": 1,
-    "title": "Restaurang",
+    "title": "Tjabba Thai Restaurang",
     "text": "Website for a restaurant in Stockholm. I created the logotype and designed the website.",
     "tech": "-",
-    "image": "/assets/webpage2.png",
+    "image": "/assets/1_project_header.png",
+    "thumbnailFirst": "/assets/thumbnail1.png",
+    "thumbnailSecond": "/assets/thumbnail2.png",
     "srcSet": "/assets/webpage-480.png 480w, /assets/webpage-960.png 960w, /assets/webpage.png 1440w",
     "website_link": "websitelink.com",
     "github_link": "githublink.com",
