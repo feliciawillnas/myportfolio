@@ -1,14 +1,13 @@
 import React from "react";
 import { RiExternalLinkFill } from "react-icons/ri";
 import styled from "styled-components";
-import CurrentDate from "./CurrentDate";
 
 export default function Footer({ toggleTheme, isDarkMode, currentPath }) {
   return (
     <Main $isWorksPage={currentPath === "/works"}>
       <Grid>
         <Socials>
-          <h4>socials</h4>
+          {/* <h4>socials</h4> */}
           <ul>
             <li>
               <a
@@ -33,15 +32,15 @@ export default function Footer({ toggleTheme, isDarkMode, currentPath }) {
           </ul>
         </Socials>
         <div>
-          <p>&nbsp;</p>
-          <CurrentDate />
+          {/* <p>&nbsp;</p> */}
+          {/* <CurrentDate /> */}
           <DarkmodeToggle onClick={toggleTheme}>
             <p>darkMode:{isDarkMode ? " on " : " off"}</p>
           </DarkmodeToggle>
         </div>
         <Contact>
-          <h4>contact</h4>
-          <p>felicia@gmail.com</p>
+          {/* <h4>contact</h4> */}
+          <p>FELICIA@GMAIL.COM</p>
         </Contact>
       </Grid>
     </Main>
