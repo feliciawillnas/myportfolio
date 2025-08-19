@@ -1,55 +1,54 @@
-import React from "react";
 import { RiExternalLinkFill } from "react-icons/ri";
 import styled from "styled-components";
-import AsciiArt from "../components/AsciiArt";
+import { Cursor } from "../components/Cursor";
+import { useCursor } from "../hooks/useCursor";
 
 export default function Contact() {
+  const { variants, cursorVariant, textEnter, textLeave } = useCursor();
+
+  const links = [
+    {
+      href: "https://linkedin.com/in/feliciawillnas/",
+      label: "LinkedIn",
+    },
+    {
+      href: "https://github.com/feliciawillnas",
+      label: "GitHub",
+    },
+    {
+      href: "/",
+      label: "Resume",
+    },
+  ];
+
   return (
     <Main>
+      <Cursor variants={variants} cursorVariant={cursorVariant} />
       <Content>
-        <h2>feliciamail@mail.com</h2>
+        <h2 onMouseEnter={textEnter} onMouseLeave={textLeave}>
+          feliciamail@mail.com
+        </h2>
         <ul>
-          <li>
-            <a
-              href="https://linkedin.com/in/feliciawillnas/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkStyling>
-                <h2>LinkedIn</h2>
-                <h2>
+          {links.map((link) => (
+            <li key={link.label}>
+              <a href={link.href} target="_blank" rel="noopener noreferrer">
+                <LinkStyling onMouseEnter={textEnter} onMouseLeave={textLeave}>
+                  <h2>{link.label}</h2>
                   <RiExternalLinkFill />
-                </h2>
-              </LinkStyling>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://github.com/feliciawillnas"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkStyling>
-                <h2>GitHub</h2>
-                <h2>
-                  <RiExternalLinkFill />
-                </h2>
-              </LinkStyling>
-            </a>
-          </li>
+                </LinkStyling>
+              </a>
+            </li>
+          ))}
         </ul>
       </Content>
-      <Wrapper>
-        <AsciiArt />
-      </Wrapper>
     </Main>
   );
 }
 
 const Main = styled.main`
-  /* height: 100vh; */
+  cursor: none;
+  height: 100vh;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
   @media (max-width: 768px) {
@@ -65,8 +64,6 @@ const Content = styled.div`
   padding: 0 1rem;
   gap: 3rem;
 
-  /* padding-top: 7rem; */
-
   a {
     text-transform: lowercase;
 
@@ -75,27 +72,18 @@ const Content = styled.div`
     }
   }
 
-  h2 {
+  /* h2 {
     overflow-wrap: break-word;
     width: fit-content;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
+  } */
 `;
 
 const LinkStyling = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-`;
 
-const Wrapper = styled.div`
-  height: 100vh;
-  padding: 0 1rem;
-
-  @media (max-width: 768px) {
-    height: fit-content;
+  svg {
+    font-size: 45px;
   }
 `;
