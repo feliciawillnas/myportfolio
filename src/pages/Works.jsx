@@ -1,14 +1,12 @@
-import React from "react";
 import { RiExternalLinkFill } from "react-icons/ri";
 import styled from "styled-components";
-import Categories from "../components/Categories";
 import PixelImage from "../components/PixelImage";
 import projectData from "../data/projectData.json";
 
 export default function Works() {
   return (
     <Main>
-      <Categories />
+      {/* <Categories /> */}
       {projectData.map((project) => (
         <div key={project.id}>
           <h4>0{project.id}</h4>
