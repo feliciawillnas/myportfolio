@@ -31,8 +31,14 @@ export default function Contact() {
         <ul>
           {links.map((link) => (
             <li key={link.label}>
-              <a href={link.href} target="_blank" rel="noopener noreferrer">
-                <LinkStyling onMouseEnter={textEnter} onMouseLeave={textLeave}>
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onMouseEnter={textEnter}
+                onMouseLeave={textLeave}
+              >
+                <LinkStyling>
                   <h2>{link.label}</h2>
                   <RiExternalLinkFill />
                 </LinkStyling>
@@ -55,6 +61,7 @@ const Main = styled.main`
     flex-direction: column;
     gap: 2rem;
     align-items: center;
+    cursor: auto;
   }
 `;
 
@@ -64,26 +71,28 @@ const Content = styled.div`
   padding: 0 1rem;
   gap: 3rem;
 
-  a {
-    text-transform: lowercase;
-
-    &:hover {
-      text-decoration: uppercase;
-    }
-  }
-
-  /* h2 {
-    overflow-wrap: break-word;
+  li {
+    display: block;
     width: fit-content;
-  } */
+  }
 `;
 
 const LinkStyling = styled.div`
+  text-transform: lowercase;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 
+  transition: transform 0.2s;
+  transform-origin: left center;
+
   svg {
     font-size: 45px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    // For the custom cursor
+    cursor: none;
   }
 `;
