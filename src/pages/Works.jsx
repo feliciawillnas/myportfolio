@@ -1,6 +1,6 @@
+import { motion } from "framer-motion";
 import { RiExternalLinkFill } from "react-icons/ri";
 import styled from "styled-components";
-import PixelImage from "../components/PixelImage";
 import projectData from "../data/projectData.json";
 
 export default function Works() {
@@ -37,7 +37,19 @@ export default function Works() {
             </FlexedDiv>
           </ProjectWrapper>
           <ProjectImageWrapper>
-            <PixelImage src={project.image} />
+            {/* <PixelImage src={project.image} /> */}
+            <motion.img
+              initial={{ scale: 0.9 }}
+              whileInView={{ scale: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 20,
+                delay: 0.1,
+              }}
+              src={project.image}
+              alt=""
+            />
             <ProjectImageText>
               <a href="/">
                 Visit page
@@ -47,13 +59,33 @@ export default function Works() {
           </ProjectImageWrapper>
           <ImageWrapper>
             {project.thumbnailFirst && (
-              <img src={project.thumbnailFirst} alt="" />
+              <motion.img
+                initial={{ scale: 0.9 }}
+                whileInView={{ scale: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 13,
+                  delay: 0.1,
+                }}
+                src={project.thumbnailFirst}
+                alt=""
+              />
             )}
             {project.thumbnailSecond && (
-              <img src={project.thumbnailSecond} alt="" />
+              <motion.img
+                initial={{ scale: 0.9 }}
+                whileInView={{ scale: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 13,
+                  delay: 0.1,
+                }}
+                src={project.thumbnailSecond}
+                alt=""
+              />
             )}
-            {/* <PixelImage src={project.thumbnail_one} /> */}
-            {/* <PixelImage src={project.thumbnail_two} /> */}
           </ImageWrapper>
         </div>
       ))}

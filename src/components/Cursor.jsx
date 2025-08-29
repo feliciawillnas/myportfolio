@@ -9,7 +9,6 @@ export function Cursor({ variants, cursorVariant }) {
           className={`cursor`}
           variants={variants}
           animate={cursorVariant}
-          // animate="default"
         />
       </StyledCursor>
     </>
@@ -18,15 +17,15 @@ export function Cursor({ variants, cursorVariant }) {
 
 const StyledCursor = styled.div`
   .cursor {
-    background-color: #000000;
-    height: 26px;
-    width: 26px;
-    border-radius: 50%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
     pointer-events: none;
+    background-color: #000000;
   }
 `;
 
