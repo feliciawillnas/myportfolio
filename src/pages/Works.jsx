@@ -39,14 +39,8 @@ export default function Works() {
           <ProjectImageWrapper>
             {/* <PixelImage src={project.image} /> */}
             <motion.img
-              initial={{ scale: 0.9 }}
-              whileInView={{ scale: 1 }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 20,
-                delay: 0.1,
-              }}
+              initial={{ filter: "blur(80px)" }}
+              whileInView={{ filter: "none", delay: 0.1 }}
               src={project.image}
               alt=""
             />
@@ -60,28 +54,16 @@ export default function Works() {
           <ImageWrapper>
             {project.thumbnailFirst && (
               <motion.img
-                initial={{ scale: 0.9 }}
-                whileInView={{ scale: 1 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 13,
-                  delay: 0.1,
-                }}
+                initial={{ filter: "blur(80px)" }}
+                whileInView={{ filter: "none", delay: 0.1 }}
                 src={project.thumbnailFirst}
                 alt=""
               />
             )}
             {project.thumbnailSecond && (
               <motion.img
-                initial={{ scale: 0.9 }}
-                whileInView={{ scale: 1 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 13,
-                  delay: 0.1,
-                }}
+                initial={{ filter: "blur(80px)" }}
+                whileInView={{ filter: "none", delay: 0.1 }}
                 src={project.thumbnailSecond}
                 alt=""
               />

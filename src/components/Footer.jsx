@@ -1,4 +1,3 @@
-import React from "react";
 import { RiExternalLinkFill } from "react-icons/ri";
 import styled from "styled-components";
 
@@ -34,9 +33,9 @@ export default function Footer({ toggleTheme, isDarkMode, currentPath }) {
         <div>
           {/* <p>&nbsp;</p> */}
           {/* <CurrentDate /> */}
-          <DarkmodeToggle onClick={toggleTheme}>
+          {/* <DarkmodeToggle onClick={toggleTheme}>
             <p>darkMode:{isDarkMode ? " on " : " off"}</p>
-          </DarkmodeToggle>
+          </DarkmodeToggle> */}
         </div>
         <Contact>
           {/* <h4>contact</h4> */}
@@ -93,14 +92,14 @@ const Contact = styled.div`
   }
 `;
 
-const DarkmodeToggle = styled.div`
-  cursor: pointer;
-  border: none;
-  height: fit-content;
-  width: 100%;
+// const DarkmodeToggle = styled.div`
+//   cursor: pointer;
+//   border: none;
+//   height: fit-content;
+//   width: 100%;
 
-  :hover {
-    background-color: ${({ theme }) => theme.secondary};
-    color: ${({ theme }) => theme.primary};
-  }
-`;
+//   :hover {
+//     background-color: ${({ theme }) => theme.secondary};
+//     color: ${({ theme }) => theme.primary};
+//   }
+// `;

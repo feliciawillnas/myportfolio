@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
+import CurrentDate from "./CurrentDate";
 
-export default function Header({ currentPath }) {
+export default function Header({ currentPath, toggleTheme, isDarkMode }) {
   const [open, setOpen] = useState(false);
 
   const navItems = [
@@ -12,33 +13,46 @@ export default function Header({ currentPath }) {
   ];
 
   return (
-    <Main>
-      <MobileFlexedNav>
-        <HamburgerMenu onClick={() => setOpen(!open)}>
-          {open ? "Close" : "Menu"}
-        </HamburgerMenu>
-        <Nav open={open}>
-          <ul>
-            {navItems.map((item) => (
-              <li key={item.id}>
-                <a
-                  key={item.id}
-                  to={item.path}
-                  className={currentPath === item.path ? "active" : ""}
-                  href={item.path}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </Nav>
-      </MobileFlexedNav>
-    </Main>
+    <>
+      <NavWrapper>
+        <MobileFlexedNav>
+          <HamburgerMenu onClick={() => setOpen(!open)}>
+            {open ? "Close" : "Menu"}
+          </HamburgerMenu>
+          <Nav open={open}>
+            <ul>
+              {navItems.map((item) => (
+                <li key={item.id}>
+                  <a
+                    key={item.id}
+                    to={item.path}
+                    className={currentPath === item.path ? "active" : ""}
+                    href={item.path}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </Nav>
+        </MobileFlexedNav>
+        {/* Fixa så den försvinner på mobil */}
+      </NavWrapper>
+      <FunctionsWrapper>
+        <div>
+          <CurrentDate />
+          <DarkmodeToggle onClick={toggleTheme}>
+            <p>darkMode:{isDarkMode ? " on " : " off"}</p>
+          </DarkmodeToggle>
+        </div>
+      </FunctionsWrapper>
+    </>
   );
 }
 
-const Main = styled.header`
+const NavWrapper = styled.header`
+  display: flex;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   width: 100%;
@@ -48,10 +62,12 @@ const Main = styled.header`
 
   @media (max-width: 768px) {
     padding: 0.7rem;
+    // Ta bort på mobil
   }
 `;
 
 const MobileFlexedNav = styled.div`
+  width: 100%;
   @media (max-width: 768px) {
     display: flex;
     flex-direction: row-reverse;
@@ -64,7 +80,6 @@ const Nav = styled.nav`
 
   ul {
     display: flex;
-    /* flex-direction: row; */
     flex-direction: column;
     gap: 0.1rem;
 
@@ -109,4 +124,31 @@ const HamburgerMenu = styled.p`
   @media (max-width: 768px) {
     display: block;
   }
+`;
+
+const FunctionsWrapper = styled.div`
+  position: fixed;
+  z-index: 999;
+  top: 15px;
+  right: 15px;
+  /* Not working */
+  /* mix-blend-mode: difference; */
+  color: ${({ theme }) => theme.text};
+
+  div {
+    display: flex;
+    gap: 0.1rem;
+    flex-direction: column;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const DarkmodeToggle = styled.div`
+  cursor: pointer;
+  border: none;
+  height: fit-content;
+  width: 100%;
 `;
