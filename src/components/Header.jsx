@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoStarSharp } from "react-icons/io5";
 import styled from "styled-components";
 import CurrentDate from "./CurrentDate";
 
@@ -44,6 +45,11 @@ export default function Header({ currentPath, toggleTheme, isDarkMode }) {
           <DarkmodeToggle onClick={toggleTheme}>
             <p>darkMode:{isDarkMode ? " on " : " off"}</p>
           </DarkmodeToggle>
+          <ExtramodeToggle>
+            <p>
+              <IoStarSharp />
+            </p>
+          </ExtramodeToggle>
         </div>
       </FunctionsWrapper>
     </>
@@ -147,6 +153,13 @@ const FunctionsWrapper = styled.div`
 `;
 
 const DarkmodeToggle = styled.div`
+  cursor: pointer;
+  border: none;
+  height: fit-content;
+  width: 100%;
+`;
+
+const ExtramodeToggle = styled.div`
   cursor: pointer;
   border: none;
   height: fit-content;

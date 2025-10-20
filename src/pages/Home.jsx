@@ -1,42 +1,55 @@
-import React from "react";
 import styled from "styled-components";
 
 export default function Home() {
   return (
-    <Main>
-      <InnerBox>
-        {/* <InformationBox> */}
-        <Grid>
-          <Titles>
-            <h1>Portfolio</h1>
-            <h4>Something</h4>
-          </Titles>
-          <Information>
-            <h4>Felicia Will</h4>
-            <h4>Front end developer</h4>
-          </Information>
-        </Grid>
-        {/* <PortfolioLogo>portfolio</PortfolioLogo> */}
-        {/* </InformationBox> */}
-      </InnerBox>
-    </Main>
+    <>
+      <Main>
+        <InnerBox>
+          <Title>Portfolio</Title>
+          <Titles>{/* <h4>Something</h4> */}</Titles>
+        </InnerBox>
+      </Main>
+    </>
   );
 }
+
+const Title = styled.h1`
+  /* width: 100%; */
+  width: 100vw;
+  /* font-size: 100vw; */
+  font-size: 17.4vmax;
+  color: ${({ theme }) => theme.text};
+  letter-spacing: -0.2rem;
+  text-transform: uppercase;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: inter, sans-serif;
+
+  line-height: 0.9;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+`;
 
 const Main = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  width: 100%;
+  /* height: 100vh; */
   padding: 5rem 1rem 0 1rem;
   background-color: ${({ theme }) => theme.primary};
+
+  /* h1 {
+    font-size: 10vmax;
+    font-family: Arial, Helvetica, sans-serif;
+  } */
 `;
 
 const InnerBox = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 80vh;
   border-radius: 1px;
-  /* background-color: ${({ theme }) => theme.secondary}; */
   background-color: ${({ theme }) => theme.primary};
 `;
 

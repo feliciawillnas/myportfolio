@@ -7,6 +7,7 @@ export default function Works() {
   return (
     <Main>
       {/* <Categories /> */}
+      {/* Titles */}
       {projectData.map((project) => (
         <div key={project.id}>
           <h4>0{project.id}</h4>
@@ -17,7 +18,9 @@ export default function Works() {
               <h4>Tech stack</h4>
               <h4>Details</h4>
             </FlexedDiv>
+            {/* Project information */}
             <FlexedDiv>
+              {/* Göra så att detta tar upp resten av sidan */}
               <ul>
                 <li>
                   <a href={project.website_link}>
@@ -26,16 +29,23 @@ export default function Works() {
                   </a>
                 </li>
                 <li>
-                  <a href={project.github_link}>
-                    View on github
-                    <RiExternalLinkFill />
-                  </a>
+                  {project.github_link ? (
+                    <a href={project.github_link}>
+                      View on GitHub <RiExternalLinkFill />
+                    </a>
+                  ) : (
+                    // Fixa så det är någon skillnad mellan dessa
+                    <a href="#">
+                      View on GitHub <RiExternalLinkFill />
+                    </a>
+                  )}
                 </li>
               </ul>
               <p>{project.tech}</p>
               <p>{project.text}</p>
             </FlexedDiv>
           </ProjectWrapper>
+          {/* Project images */}
           <ProjectImageWrapper>
             {/* <PixelImage src={project.image} /> */}
             <motion.img

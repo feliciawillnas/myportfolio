@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Route,
   BrowserRouter as Router,
@@ -32,32 +32,39 @@ export default function App() {
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <GlobalStyles />
       <Router>
-        <HeaderPathProp />
+        <HeaderPathProp toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/works" element={<Works />} />
           <Route path="/about" element={<About />} />
         </Routes>
-        <FooterPathProp toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+        {/* <FooterPathProp /> */}
+        {/* <FooterPathProp toggleTheme={toggleTheme} isDarkMode={isDarkMode} /> */}
       </Router>
     </ThemeProvider>
   );
 }
 
-function HeaderPathProp() {
+function HeaderPathProp({ toggleTheme, isDarkMode }) {
   const location = useLocation();
-  return <Header currentPath={location.pathname} />;
+  return (
+    <Header
+      currentPath={location.pathname}
+      toggleTheme={toggleTheme}
+      isDarkMode={isDarkMode}
+    />
+  );
 }
 
-function FooterPathProp({ toggleTheme, isDarkMode }) {
+function FooterPathProp() {
   const location = useLocation();
 
   return (
     <Footer
       currentPath={location.pathname}
-      toggleTheme={toggleTheme}
-      isDarkMode={isDarkMode}
+      // toggleTheme={toggleTheme}
+      // isDarkMode={isDarkMode}
     />
   );
 }

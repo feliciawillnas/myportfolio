@@ -49,6 +49,8 @@ html, body, #root {
     font-size: 15px;
     letter-spacing: 0.04rem;
     font-weight: 400;
+
+    text-transform: uppercase;
     
     @media (max-width: 768px) {
       font-size: 13px;
@@ -87,7 +89,7 @@ html, body, #root {
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 400;
-    cursor: pointer;
+    /* cursor: pointer; */
 
     @media (max-width: 768px) {
       font-size: 13px;

@@ -1,5 +1,6 @@
 import { RiExternalLinkFill } from "react-icons/ri";
 import styled from "styled-components";
+
 import { Cursor } from "../components/Cursor";
 import { useCursor } from "../hooks/useCursor";
 
@@ -22,32 +23,34 @@ export default function Contact() {
   ];
 
   return (
-    <Main>
-      <Cursor variants={variants} cursorVariant={cursorVariant} />
-      <Content>
-        <h2 onMouseEnter={textEnter} onMouseLeave={textLeave}>
-          feliciamail@mail.com
-        </h2>
-        <ul>
-          {links.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onMouseEnter={textEnter}
-                onMouseLeave={textLeave}
-              >
-                <LinkStyling>
-                  <h2>{link.label}</h2>
-                  <RiExternalLinkFill />
-                </LinkStyling>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </Content>
-    </Main>
+    <>
+      <Main>
+        <Cursor variants={variants} cursorVariant={cursorVariant} />
+        <Content>
+          <h2 onMouseEnter={textEnter} onMouseLeave={textLeave}>
+            feliciamail@mail.com
+          </h2>
+          <ul>
+            {links.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onMouseEnter={textEnter}
+                  onMouseLeave={textLeave}
+                >
+                  <LinkStyling>
+                    <h2>{link.label}</h2>
+                    <RiExternalLinkFill />
+                  </LinkStyling>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Content>
+      </Main>
+    </>
   );
 }
 

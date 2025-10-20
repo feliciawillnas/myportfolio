@@ -8,8 +8,8 @@
     "thumbnailFirst": "/assets/thumbnail1.png",
     "thumbnailSecond": "/assets/thumbnail2.png",
     "srcSet": "/assets/webpage-480.png 480w, /assets/webpage-960.png 960w, /assets/webpage.png 1440w",
-    "website_link": "websitelink.com",
-    "github_link": "githublink.com",
-    "category": "school"
+    "website_link": "https://tjabbathai.se",
+    "github_link": "",
+    "category": "freelance"
   }
 ]
