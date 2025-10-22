@@ -13,47 +13,66 @@ export default function Works() {
           <h4>0{project.id}</h4>
           <ProjectWrapper>
             <FlexedDiv>
-              <h4>{project.title}</h4>
-              <h4>&nbsp;</h4>
-              <h4>Tech stack</h4>
-              <h4>Details</h4>
+              <Titles>
+                <h4>{project.title}</h4>
+                <h4>&nbsp;</h4>
+                <h4>&nbsp;</h4>
+                <h4>Tech stack</h4>
+                <h4>Details</h4>
+              </Titles>
             </FlexedDiv>
             {/* Project information */}
             <FlexedDiv>
-              {/* Göra så att detta tar upp resten av sidan */}
-              <ul>
-                <li>
-                  <a href={project.website_link}>
-                    View site
-                    <RiExternalLinkFill />
-                  </a>
-                </li>
-                <li>
-                  {project.github_link ? (
-                    <a href={project.github_link}>
-                      View on GitHub <RiExternalLinkFill />
+              <Descriptions>
+                {/* Göra så att detta tar upp resten av sidan */}
+                <ul>
+                  <li>
+                    <a href={project.website_link}>
+                      View site
+                      <RiExternalLinkFill />
                     </a>
-                  ) : (
-                    // Fixa så det är någon skillnad mellan dessa
-                    <a href="#">
-                      View on GitHub <RiExternalLinkFill />
-                    </a>
-                  )}
-                </li>
-              </ul>
-              <p>{project.tech}</p>
-              <p>{project.text}</p>
+                  </li>
+                  <li>
+                    {project.github_link ? (
+                      <a href={project.github_link}>
+                        View on GitHub <RiExternalLinkFill />
+                      </a>
+                    ) : (
+                      // Fixa så det är någon skillnad mellan dessa
+                      <a href="#">
+                        View on GitHub <RiExternalLinkFill />
+                      </a>
+                    )}
+                  </li>
+                </ul>
+                <h4>&nbsp;</h4>
+                <p>{project.tech}</p>
+                <p>{project.text}</p>
+              </Descriptions>
             </FlexedDiv>
           </ProjectWrapper>
           {/* Project images */}
           <ProjectImageWrapper>
-            {/* <PixelImage src={project.image} /> */}
-            <motion.img
-              initial={{ filter: "blur(80px)" }}
-              whileInView={{ filter: "none", delay: 0.1 }}
-              src={project.image}
-              alt=""
-            />
+            {project.image === "" ? (
+              <VideoWrapper>
+                <motion.video
+                  initial={{ filter: "blur(80px)" }}
+                  whileInView={{ filter: "none", delay: 0.1 }}
+                  src={project.video}
+                  alt=""
+                  autoPlay
+                  loop
+                  muted
+                />
+              </VideoWrapper>
+            ) : (
+              <motion.img
+                initial={{ filter: "blur(80px)" }}
+                whileInView={{ filter: "none", delay: 0.1 }}
+                src={project.image}
+                alt=""
+              />
+            )}
             <ProjectImageText>
               <a href="/">
                 Visit page
@@ -134,7 +153,7 @@ const ProjectImageWrapper = styled.div`
 
 const ProjectWrapper = styled.div`
   display: flex;
-  gap: 8rem;
+  gap: 0rem;
 
   @media (max-width: 768px) {
     gap: 3rem;
@@ -164,6 +183,18 @@ const FlexedDiv = styled.div`
   }
 `;
 
+const Titles = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 18rem;
+`;
+
+const Descriptions = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
 const ImageWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -172,9 +203,23 @@ const ImageWrapper = styled.div`
   gap: 0.5rem;
 
   img {
+    border-radius: 2px;
     margin-top: 2rem;
     width: auto;
     height: 40vw;
     object-fit: cover;
+  }
+`;
+
+const VideoWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0.5rem;
+
+  video {
+    width: 98vw;
+    object-fit: cover;
+    border-radius: 2px;
   }
 `;
