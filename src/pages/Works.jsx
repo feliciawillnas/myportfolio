@@ -20,41 +20,28 @@ export default function Works() {
             {/* Shared section across layouts */}
             <h4>0{project.id}</h4>
             <ProjectWrapper>
-              <FlexedDiv>
-                <Titles>
-                  <h4>{project.title}</h4>
-                  <h4>&nbsp;</h4>
-                  <h4>&nbsp;</h4>
-                  <h4>Tech stack</h4>
-                  <h4>Details</h4>
-                </Titles>
-              </FlexedDiv>
-              <FlexedDiv>
-                <Descriptions>
-                  <ul>
-                    <li>
-                      <a href={project.website_link}>
-                        View site
-                        <RiExternalLinkFill />
-                      </a>
-                    </li>
-                    <li>
-                      {project.github_link ? (
-                        <a href={project.github_link}>
-                          View on GitHub <RiExternalLinkFill />
-                        </a>
-                      ) : (
-                        <a href="#">
-                          View on GitHub <RiExternalLinkFill />
-                        </a>
-                      )}
-                    </li>
-                  </ul>
-                  <h4>&nbsp;</h4>
-                  <p>{project.tech}</p>
-                  <p>{project.text}</p>
-                </Descriptions>
-              </FlexedDiv>
+              <h4>{project.title}</h4>
+              <ul>
+                <li>
+                  <a href={project.website_link}>
+                    View site
+                    <RiExternalLinkFill />
+                  </a>
+                </li>
+                <div></div>
+                <li>
+                  <a href={project.github_link}>
+                    View on GitHub
+                    <RiExternalLinkFill />
+                  </a>
+                </li>
+              </ul>
+              <h4>&nbsp;</h4>
+              <h4>&nbsp;</h4>
+              <h4>Tech stack</h4>
+              <p>{project.tech}</p>
+              <h4>Details</h4>
+              <p>{project.text}</p>
             </ProjectWrapper>
             <Layout project={project} />
           </div>
@@ -69,8 +56,10 @@ const Main = styled.main`
   flex-direction: column;
   padding: 1rem;
   margin-top: 5rem;
-  gap: 3rem;
   width: 100%;
+
+  // Gap between each project
+  gap: 3rem;
 
   @media (max-width: 768px) {
     padding: 0.7rem;
@@ -78,18 +67,15 @@ const Main = styled.main`
 `;
 
 const ProjectWrapper = styled.div`
-  display: flex;
-  margin-bottom: 0.5rem;
+  display: grid;
+  grid-template-columns: 18rem 1fr;
+  margin-bottom: 1rem;
 
   @media (max-width: 768px) {
-    gap: 3rem;
+    grid-template-columns: 1fr;
   }
-`;
 
-const FlexedDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-
+  // For the links
   a {
     display: flex;
     align-items: center;
@@ -97,26 +83,11 @@ const FlexedDiv = styled.div`
   }
 
   li {
+    width: 100%;
+
     :hover {
       background-color: ${({ theme }) => theme.secondary};
       color: ${({ theme }) => theme.primary};
     }
   }
-
-  h4 {
-    text-transform: uppercase;
-    color: ${({ theme }) => theme.text};
-  }
-`;
-
-const Titles = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 18rem;
-`;
-
-const Descriptions = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 `;
