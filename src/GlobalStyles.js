@@ -120,4 +120,8 @@ html, body, #root {
   img {
     border-radius: 2px;
   }
+
+  video {
+    border-radius: 2px;
+  }
 `;

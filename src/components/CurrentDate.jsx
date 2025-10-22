@@ -26,11 +26,6 @@ const CurrentDate = () => {
 
 const Main = styled.div`
   text-transform: uppercase;
-
-  // do something more dynamic
-  p {
-    width: 164px;
-  }
 `;
 
 export default CurrentDate;

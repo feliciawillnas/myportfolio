@@ -103,12 +103,6 @@ const Nav = styled.nav`
       background-color: ${({ theme }) => theme.secondary};
       color: ${({ theme }) => theme.primary};
     }
-
-    .active {
-      /* text-decoration: underline; */
-      /* text-underline-offset: 0.1rem; */
-      /* text-decoration-thickness: 1.2px; */
-    }
   }
 
   a {
@@ -137,14 +131,15 @@ const FunctionsWrapper = styled.div`
   z-index: 999;
   top: 15px;
   right: 15px;
-  /* Not working */
-  /* mix-blend-mode: difference; */
+  /* Not working entirely */
   color: ${({ theme }) => theme.text};
+  mix-blend-mode: difference;
 
   div {
     display: flex;
     gap: 0.1rem;
     flex-direction: column;
+    align-items: flex-end;
   }
 
   @media (max-width: 768px) {

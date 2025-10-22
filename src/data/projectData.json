@@ -17,6 +17,7 @@
     "title": "Web Museum",
     "text": "A web museum showcasing various artworks. Created using the Art Institute of Chicago API.",
     "tech": "React, JavaScript, Styled Components, Motion",
+    "wallpaper": "/assets/2_project_wallpaper.jpg",
     "image": "/assets/2_project_header.png",
     "video": "/assets/2_project_header.mov",
     "thumbnailFirst": "-",

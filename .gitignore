@@ -7,9 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 TODO.md
-webpage2.png
 webpage.png
 projectData.json
+PixelImage.jsx
+Scrambler.jsx
 
 node_modules
 dist

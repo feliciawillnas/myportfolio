@@ -30,6 +30,10 @@ const PixelImage = ({ src }) => {
       const scaledWidth = fullWidth * percent;
       const scaledHeight = fullHeight * percent;
 
+      // Prevent error:
+      // The image argument is a canvas element with a width or height of 0
+      if (scaledWidth === 0 || scaledHeight === 0) return;
+
       // Clear the canvas and then draw the image with pixelation
       ctx.clearRect(0, 0, fullWidth, fullHeight); // Clear any previous content
       ctx.imageSmoothingEnabled = false; // Disable image smoothing for pixelation
