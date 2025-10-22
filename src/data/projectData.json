@@ -2,14 +2,28 @@
   {
     "id": 1,
     "title": "Tjabba Thai Restaurang",
-    "text": "Website for a restaurant in Stockholm. I created the logotype and designed the website.",
-    "tech": "-",
+    "text": "Website for a thai restaurant in Stockholm. The website is built using one.com’s website builder in order to keep it simple for the owner of the restaurant to make changes on their own. I created a new logotype, developed a cohesive visual identity including layout, typography and color scheme.",
+    "tech": "one.com Website builder",
     "image": "/assets/1_project_header.png",
     "thumbnailFirst": "/assets/thumbnail1.png",
     "thumbnailSecond": "/assets/thumbnail2.png",
-    "srcSet": "/assets/webpage-480.png 480w, /assets/webpage-960.png 960w, /assets/webpage.png 1440w",
     "website_link": "https://tjabbathai.se",
     "github_link": "",
-    "category": "freelance"
+    "category": "freelance",
+    "layoutType": "A"
+  },
+  {
+    "id": 2,
+    "title": "Web Museum",
+    "text": "A web museum showcasing various artworks. Created using the Art Institute of Chicago API.",
+    "tech": "React, JavaScript, Styled Components, Motion",
+    "image": "/assets/2_project_header.png",
+    "video": "/assets/2_project_header.mov",
+    "thumbnailFirst": "-",
+    "thumbnailSecond": "-",
+    "website_link": "https://webpage2.com",
+    "github_link": "",
+    "category": "hobby",
+    "layoutType": "B"
   }
 ]

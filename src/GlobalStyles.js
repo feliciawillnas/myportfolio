@@ -116,4 +116,8 @@ html, body, #root {
       font-size: 4px;
     }
   }
+
+  img {
+    border-radius: 2px;
+  }
 `;
