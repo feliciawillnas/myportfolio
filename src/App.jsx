@@ -6,7 +6,6 @@ import {
   useLocation,
 } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { GlobalStyles } from "./GlobalStyles";
 import About from "./pages/About";
@@ -39,8 +38,6 @@ export default function App() {
           <Route path="/works" element={<Works />} />
           <Route path="/about" element={<About />} />
         </Routes>
-        {/* <FooterPathProp /> */}
-        {/* <FooterPathProp toggleTheme={toggleTheme} isDarkMode={isDarkMode} /> */}
       </Router>
     </ThemeProvider>
   );
@@ -53,18 +50,6 @@ function HeaderPathProp({ toggleTheme, isDarkMode }) {
       currentPath={location.pathname}
       toggleTheme={toggleTheme}
       isDarkMode={isDarkMode}
-    />
-  );
-}
-
-function FooterPathProp() {
-  const location = useLocation();
-
-  return (
-    <Footer
-      currentPath={location.pathname}
-      // toggleTheme={toggleTheme}
-      // isDarkMode={isDarkMode}
     />
   );
 }
