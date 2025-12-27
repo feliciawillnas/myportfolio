@@ -3,7 +3,13 @@ import { IoStarSharp } from "react-icons/io5";
 import styled from "styled-components";
 import CurrentDate from "./CurrentDate";
 
-export default function Header({ currentPath, toggleTheme, isDarkMode }) {
+export default function Header({
+  currentPath,
+  toggleTheme,
+  isDarkMode,
+  toggleExtraMode,
+  isExtraMode,
+}) {
   const [open, setOpen] = useState(false);
 
   const navItems = [
@@ -15,7 +21,8 @@ export default function Header({ currentPath, toggleTheme, isDarkMode }) {
 
   return (
     <>
-      <NavWrapper>
+      <HeaderWrapper>
+        {/* Left side */}
         <MobileFlexedNav>
           <HamburgerMenu onClick={() => setOpen(!open)}>
             {open ? "Close" : "Menu"}
@@ -37,38 +44,43 @@ export default function Header({ currentPath, toggleTheme, isDarkMode }) {
             </ul>
           </Nav>
         </MobileFlexedNav>
-        {/* Fixa så den försvinner på mobil */}
-      </NavWrapper>
-      <FunctionsWrapper>
-        <div>
-          <CurrentDate />
-          <DarkmodeToggle onClick={toggleTheme}>
-            <p>darkMode:{isDarkMode ? " on " : " off"}</p>
-          </DarkmodeToggle>
-          <ExtramodeToggle>
-            <p>
-              <IoStarSharp />
-            </p>
-          </ExtramodeToggle>
-        </div>
-      </FunctionsWrapper>
+        {/* Right side */}
+        <FunctionsWrapper>
+          <div>
+            <CurrentDate />
+            <DarkmodeToggle onClick={toggleTheme}>
+              <p>darkMode:{isDarkMode ? " on " : " off"}</p>
+            </DarkmodeToggle>
+            <ExtramodeToggle>
+              <p>
+                <IoStarSharp
+                  onClick={toggleExtraMode}
+                  color={isExtraMode ? "#FFD700" : "white"}
+                  style={{ transition: "color 0.3s ease" }}
+                />
+              </p>
+            </ExtramodeToggle>
+          </div>
+        </FunctionsWrapper>
+      </HeaderWrapper>
     </>
   );
 }
 
-const NavWrapper = styled.header`
+const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   position: fixed;
-  top: 0;
   width: 100%;
+  top: 0;
   padding: 1rem;
   z-index: 999;
+  // Must be white for mix-blend-mode to work
+  color: white;
   mix-blend-mode: difference;
 
   @media (max-width: 768px) {
     padding: 0.7rem;
-    // Ta bort på mobil
   }
 `;
 
@@ -81,9 +93,8 @@ const MobileFlexedNav = styled.div`
   }
 `;
 
+// Left side
 const Nav = styled.nav`
-  width: 100%;
-
   ul {
     display: flex;
     flex-direction: column;
@@ -108,11 +119,7 @@ const Nav = styled.nav`
   a {
     display: block;
     color: white;
-
-    // Funkar inte, måste fixa
-    /* :hover {
-      mix-blend-mode: normal;
-    } */
+    mix-blend-mode: difference;
   }
 `;
 
@@ -126,14 +133,10 @@ const HamburgerMenu = styled.p`
   }
 `;
 
+// Right side
 const FunctionsWrapper = styled.div`
-  position: fixed;
-  z-index: 999;
-  top: 15px;
-  right: 15px;
-  /* Not working entirely */
-  color: ${({ theme }) => theme.text};
-  mix-blend-mode: difference;
+  // Göra något mer dynamiskt
+  width: 210px;
 
   div {
     display: flex;

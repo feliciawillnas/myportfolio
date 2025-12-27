@@ -18,8 +18,13 @@ html, body, #root {
   }
 
   /* Typography */
-  h1, h2, h3, h4, h5, span, p {
+  h1, h2, h3, h4, h5, span {
     color: ${({ theme }) => theme.text};
+  }
+
+  // Kan inte sätta färg här pga mix blend mode i header
+  p {
+    /* color: ${({ theme }) => theme.text}; */
   }
 
   h1 {
@@ -44,6 +49,11 @@ html, body, #root {
     }
   }
 
+  h3 {
+    font-family: "Source Code Pro", monospace;
+    font-size: 3rem;
+  }
+
   h4 {
     font-family: "Source Code Pro", monospace;
     font-size: 15px;
@@ -62,7 +72,7 @@ html, body, #root {
     font-weight: 400;
     font-size: 15px;
     /* color: ${({ theme }) => theme.primary}; */
-    color: ${({ theme }) => theme.text};
+    /* color: ${({ theme }) => theme.text}; */
   }
 
   span {

@@ -13,3 +13,11 @@ export const darkTheme = {
   secondary: "#f0f0f0",
   body: "#191818",
 };
+
+export const extraTheme = {
+  background: "#0b0093",
+  text: "#cbcbcb",
+  primary: "#0b0093",
+  secondary: "#cbcbcb",
+  body: "#0b0093",
+};
