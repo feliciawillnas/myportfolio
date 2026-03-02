@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import WorksColumn from "../components/WorksColumn";
 
 export default function Home() {
   return (
@@ -45,6 +46,7 @@ export default function Home() {
             </Links>
           </BusinessCard>
         </BusinessCardWrapper>
+        <WorksColumn />
       </Main>
     </>
   );
@@ -70,7 +72,8 @@ const PageTitle = styled.h1`
   text-transform: uppercase;
   font-family: inter, sans-serif;
   line-height: 0.9;
-  filter: url(#distressed-noise);
+  /* filter: url(#distressed-noise); */
+  filter: url(#goo);
 
   // Not working
   @media (max-width: 768px) {

@@ -82,6 +82,10 @@ const ProjectWrapper = styled.div`
     gap: 0.2rem;
   }
 
+  p {
+    color: ${({ theme }) => theme.text};
+  }
+
   li {
     width: 100%;
 

@@ -26,6 +26,20 @@ export default function SvgFilters() {
               yChannelSelector="R"
             />
           </filter>
+
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 20 -10
+              "
+            />
+          </filter>
         </defs>
       </svg>
     </>

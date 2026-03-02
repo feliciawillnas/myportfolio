@@ -1,19 +1,13 @@
 import { motion } from "framer-motion";
-import { RiExternalLinkFill } from "react-icons/ri";
 import styled from "styled-components";
+import VisitPage from "../VisitPage";
 
 export default function WorksLayoutB({ project }) {
   return (
     <Main>
       <Wallpaper>
-        <ProjectImageText>
-          <a href="/">
-            <p>
-              Visit page
-              <RiExternalLinkFill />
-            </p>
-          </a>
-        </ProjectImageText>
+        {/* Visit page component */}
+        <VisitPage project={project} />
         <motion.img
           src={project.wallpaper}
           initial={{ filter: "blur(80px)" }}
@@ -45,34 +39,13 @@ const Main = styled.div`
   position: relative;
 `;
 
-const ProjectImageText = styled.div`
-  visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 2px;
-  z-index: 10;
-
-  a {
-    color: #f0f0f0;
-  }
-
-  p {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-`;
-
 const Wallpaper = styled.div`
   position: relative;
+  filter: blur(4px);
 
   img {
     width: 100%;
     height: auto;
-  }
-
-  &:hover ${ProjectImageText} {
-    visibility: visible;
   }
 
   &:hover {
