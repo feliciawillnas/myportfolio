@@ -1,32 +1,23 @@
 import { useState } from "react";
 import { IoStarSharp } from "react-icons/io5";
 import styled from "styled-components";
-import CurrentDate from "./CurrentDate";
 
-export default function Header({
-  currentPath,
-  toggleTheme,
-  isDarkMode,
-  toggleExtraMode,
-  isExtraMode,
-}) {
+export default function Header({ currentPath, toggleTheme, isDarkMode }) {
   const [open, setOpen] = useState(false);
 
   const navItems = [
     { id: "home", label: "home", path: "/" },
     { id: "contact", label: "contact", path: "/contact" },
-    // { id: "about", label: "about", path: "/about" },
     { id: "works", label: "works", path: "/works" },
   ];
 
   return (
     <>
       <HeaderWrapper>
-        {/* Left side */}
         <MobileFlexedNav>
-          <HamburgerMenu onClick={() => setOpen(!open)}>
+          <HamburgerToggle onClick={() => setOpen(!open)}>
             {open ? "Close" : "Menu"}
-          </HamburgerMenu>
+          </HamburgerToggle>
           <Nav open={open}>
             <ul>
               {navItems.map((item) => (
@@ -41,41 +32,27 @@ export default function Header({
                   </a>
                 </li>
               ))}
+              <Icon>
+                <IoStarSharp />
+              </Icon>
+              <DarkmodeToggle onClick={toggleTheme}>
+                <p>Dark mode{isDarkMode ? " on " : " off"}</p>
+              </DarkmodeToggle>
             </ul>
           </Nav>
         </MobileFlexedNav>
-        {/* Right side */}
-        <FunctionsWrapper>
-          <div>
-            <CurrentDate />
-            <DarkmodeToggle onClick={toggleTheme}>
-              <p>darkMode:{isDarkMode ? " on " : " off"}</p>
-            </DarkmodeToggle>
-            <ExtramodeToggle>
-              <p>
-                <IoStarSharp
-                  onClick={toggleExtraMode}
-                  color={isExtraMode ? "#FFD700" : "white"}
-                  style={{ transition: "color 0.3s ease" }}
-                />
-              </p>
-            </ExtramodeToggle>
-          </div>
-        </FunctionsWrapper>
       </HeaderWrapper>
     </>
   );
 }
 
 const HeaderWrapper = styled.header`
-  display: flex;
-  justify-content: space-between;
   position: fixed;
   width: 100%;
   top: 0;
   padding: 1rem;
   z-index: 999;
-  // Must be white for mix-blend-mode to work
+
   color: white;
   mix-blend-mode: difference;
 
@@ -93,37 +70,34 @@ const MobileFlexedNav = styled.div`
   }
 `;
 
-// Left side
 const Nav = styled.nav`
   ul {
     display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
+    flex-direction: row;
+    gap: 5rem;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
 
     @media (max-width: 768px) {
       display: ${({ open }) => (open ? "flex" : "none")};
       flex-direction: column;
+      align-items: flex-start;
       gap: 0.1rem;
     }
   }
 
-  li {
-    display: block;
-
-    :hover {
-      background-color: ${({ theme }) => theme.secondary};
-      color: ${({ theme }) => theme.primary};
-    }
-  }
-
   a {
-    display: block;
+    display: flex;
+    align-items: center;
     color: white;
     mix-blend-mode: difference;
+    gap: 0.2rem;
   }
 `;
 
-const HamburgerMenu = styled.p`
+// Not visible unless on mobile
+const HamburgerToggle = styled.p`
   display: none;
   text-transform: uppercase;
   cursor: pointer;
@@ -133,17 +107,12 @@ const HamburgerMenu = styled.p`
   }
 `;
 
-// Right side
-const FunctionsWrapper = styled.div`
-  // Göra något mer dynamiskt
-  width: 210px;
+const Icon = styled.svg`
+  font-size: 1.5rem;
 
-  div {
-    display: flex;
-    gap: 0.1rem;
-    flex-direction: column;
-    align-items: flex-end;
-  }
+  // Utan dessa orsakar svg att height och width blir större än fit content
+  width: 1.5rem;
+  height: 1.5rem;
 
   @media (max-width: 768px) {
     display: none;
@@ -152,14 +121,9 @@ const FunctionsWrapper = styled.div`
 
 const DarkmodeToggle = styled.div`
   cursor: pointer;
-  border: none;
-  height: fit-content;
-  width: 100%;
-`;
+  text-transform: uppercase;
 
-const ExtramodeToggle = styled.div`
-  cursor: pointer;
-  border: none;
-  height: fit-content;
-  width: 100%;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;

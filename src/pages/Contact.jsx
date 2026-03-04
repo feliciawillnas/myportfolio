@@ -1,4 +1,3 @@
-import { RiExternalLinkFill } from "react-icons/ri";
 import styled from "styled-components";
 
 import { Cursor } from "../components/Cursor";
@@ -20,35 +19,34 @@ export default function Contact() {
       href: "/",
       label: "Resume",
     },
+    {
+      href: "/",
+      label: "Email",
+    },
   ];
 
   return (
     <>
       <Main>
         <Cursor variants={variants} cursorVariant={cursorVariant} />
-        <Content>
-          <h2 onMouseEnter={textEnter} onMouseLeave={textLeave}>
-            feliciamail@mail.com
-          </h2>
-          <ul>
-            {links.map((link) => (
-              <li key={link.label}>
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onMouseEnter={textEnter}
-                  onMouseLeave={textLeave}
-                >
-                  <LinkStyling>
-                    <h2>{link.label}</h2>
-                    <RiExternalLinkFill />
-                  </LinkStyling>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </Content>
+
+        <ul>
+          {links.map((link) => (
+            <li key={link.label}>
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onMouseEnter={textEnter}
+                onMouseLeave={textLeave}
+              >
+                <LinkStyling>
+                  <h1>{link.label}</h1>
+                </LinkStyling>
+              </a>
+            </li>
+          ))}
+        </ul>
       </Main>
     </>
   );
@@ -57,22 +55,52 @@ export default function Contact() {
 const Main = styled.main`
   cursor: none;
   height: 100vh;
-  display: flex;
-  align-items: center;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-    cursor: auto;
-  }
-`;
-
-const Content = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0 1rem;
-  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 3rem 1rem;
+    list-style: none;
+    padding: 0;
+
+    li:nth-child(1) {
+      grid-column: 2;
+    }
+
+    li:nth-child(2) {
+      grid-column: 1;
+      margin-right: -3rem;
+    }
+
+    li:nth-child(3) {
+      grid-column: 3;
+      margin-left: -3rem;
+    }
+
+    li:nth-child(4) {
+      grid-column: 2;
+    }
+
+    @media (max-width: 768px) {
+      display: block;
+
+      flex-direction: column;
+      align-items: center;
+
+      li:nth-child(2) {
+        margin-right: 0rem;
+      }
+
+      li:nth-child(3) {
+        margin-left: 0rem;
+      }
+    }
+  }
 
   li {
     display: block;
@@ -81,7 +109,6 @@ const Content = styled.div`
 `;
 
 const LinkStyling = styled.div`
-  text-transform: lowercase;
   display: flex;
   align-items: center;
   gap: 0.5rem;
