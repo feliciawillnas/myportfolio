@@ -60,5 +60,9 @@ const ThumbnailWrapper = styled.div`
     width: auto;
     height: 40vw;
     object-fit: cover;
+
+    @media (max-width: 768px) {
+      height: 60vw;
+    }
   }
 `;

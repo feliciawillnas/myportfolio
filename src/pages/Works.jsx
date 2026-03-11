@@ -36,11 +36,12 @@ export default function Works() {
                   </a>
                 </li>
               </ul>
-              <h4>&nbsp;</h4>
-              <h4>&nbsp;</h4>
-              <h4>Tech stack</h4>
+              {/* Fixa bättre lösning */}
+              <h4 className="hideOnMobile">&nbsp;</h4>
+              <h4 className="hideOnMobile">&nbsp;</h4>
+              <h4 className="hideOnMobile">Tech stack</h4>
               <p>{project.tech}</p>
-              <h4>Details</h4>
+              <h4 className="hideOnMobile">Details</h4>
               <p>{project.text}</p>
             </ProjectWrapper>
             <Layout project={project} />
@@ -71,8 +72,15 @@ const ProjectWrapper = styled.div`
   grid-template-columns: 18rem 1fr;
   margin-bottom: 1rem;
 
+  .hideOnMobile {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   // For the links

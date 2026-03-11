@@ -51,6 +51,10 @@ const Wallpaper = styled.div`
   &:hover {
     cursor: pointer;
   }
+
+  @media (max-width: 768px) {
+    filter: blur(1px);
+  }
 `;
 
 const Wrapper = styled.div`
@@ -66,5 +70,9 @@ const Wrapper = styled.div`
   video {
     height: auto;
     width: 45vw;
+
+    @media (max-width: 768px) {
+      width: 43vw;
+    }
   }
 `;
