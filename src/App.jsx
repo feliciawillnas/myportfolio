@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import Header from "./components/Header";
+import SvgFilters from "./components/SvgFilters";
 import { GlobalStyles } from "./GlobalStyles";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -15,6 +16,7 @@ import Works from "./pages/Works";
 import { darkTheme, lightTheme } from "./theme";
 
 export default function App() {
+  // Darkmode state
   const [isDarkMode, setIsDarkMode] = useState(() => {
     return localStorage.getItem("darkMode") === "true";
   });
@@ -29,6 +31,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      <SvgFilters />
       <GlobalStyles />
       <Router>
         <HeaderPathProp toggleTheme={toggleTheme} isDarkMode={isDarkMode} />

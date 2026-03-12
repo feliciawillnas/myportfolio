@@ -23,11 +23,16 @@ const Main = styled.main`
 
 const PageTitle = styled.div`
   text-align: justify;
-  padding: 0 33rem;
+  width: 28%;
   line-height: 1.3;
+  /* filter: url(#wonky); */
 
   h1 {
     margin-top: 5rem;
     padding: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 80%;
   }
 `;

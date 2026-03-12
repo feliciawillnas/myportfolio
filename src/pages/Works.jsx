@@ -23,14 +23,20 @@ export default function Works() {
               <h4>{project.title}</h4>
               <ul>
                 <li>
-                  <a href={project.website_link}>
+                  <a
+                    href={project.website_link}
+                    className={!project.website_link ? "disabled" : ""}
+                  >
                     View site
                     <RiExternalLinkFill />
                   </a>
                 </li>
                 <div></div>
                 <li>
-                  <a href={project.github_link}>
+                  <a
+                    href={project.github_link}
+                    className={!project.github_link ? "disabled" : ""}
+                  >
                     View on GitHub
                     <RiExternalLinkFill />
                   </a>
@@ -88,6 +94,11 @@ const ProjectWrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 0.2rem;
+  }
+
+  .disabled {
+    pointer-events: none;
+    color: ${({ theme }) => theme.disabled};
   }
 
   p {

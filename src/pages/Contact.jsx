@@ -112,6 +112,7 @@ const LinkStyling = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  /* filter: url(#wonky); */
 
   transition: transform 0.2s;
   transform-origin: left center;

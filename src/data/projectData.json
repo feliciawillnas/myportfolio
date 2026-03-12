@@ -15,7 +15,7 @@
   {
     "id": 2,
     "title": "Web Museum",
-    "text": "A web museum showcasing various artworks. Created using the Art Institute of Chicago API.",
+    "text": "A web museum showcasing various artworks. Created with the intention of learning more about parallax effects and API usage. Created using the Art Institute of Chicago API.",
     "tech": "React, JavaScript, Styled Components, Motion",
     "wallpaper": "/assets/2_project_wallpaper.jpg",
     "image": "/assets/2_project_header.png",
@@ -26,5 +26,20 @@
     "github_link": "",
     "category": "hobby",
     "layoutType": "B"
+  },
+  {
+    "id": 3,
+    "title": "Portfolio",
+    "text": "The portfolio you are currently visiting.",
+    "tech": "React, JavaScript, Styled Components, Motion",
+    "wallpaper": "",
+    "image": "/assets/portfoliopage.png",
+    "video": "",
+    "thumbnailFirst": "-",
+    "thumbnailSecond": "-",
+    "website_link": "https://webpage3.com",
+    "github_link": "",
+    "category": "hobby",
+    "layoutType": "A"
   }
 ]

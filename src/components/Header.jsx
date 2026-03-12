@@ -6,9 +6,11 @@ export default function Header({ currentPath, toggleTheme, isDarkMode }) {
   const [open, setOpen] = useState(false);
 
   const navItems = [
-    { id: "home", label: "home", path: "/" },
-    { id: "contact", label: "contact", path: "/contact" },
-    { id: "works", label: "works", path: "/works" },
+    { id: "home", label: "home", type: "link", path: "/" },
+    { id: "contact", label: "contact", type: "link", path: "/contact" },
+    { id: "star", type: "icon", path: "/" },
+    { id: "works", label: "works", type: "link", path: "/works" },
+    { id: "darkmode", type: "theme" },
   ];
 
   return (
@@ -20,24 +22,38 @@ export default function Header({ currentPath, toggleTheme, isDarkMode }) {
           </HamburgerToggle>
           <Nav open={open}>
             <ul>
-              {navItems.map((item) => (
-                <li key={item.id}>
-                  <a
-                    key={item.id}
-                    to={item.path}
-                    className={currentPath === item.path ? "active" : ""}
-                    href={item.path}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-              <Icon>
-                <IoStarSharp />
-              </Icon>
-              <DarkmodeToggle onClick={toggleTheme}>
-                <p>Dark mode{isDarkMode ? " on " : " off"}</p>
-              </DarkmodeToggle>
+              {navItems.map((item) => {
+                // Might merge icon & theme if statement
+                if (item.type === "icon") {
+                  return (
+                    <li key={item.id}>
+                      <Icon href={item.path}>
+                        <IoStarSharp />
+                      </Icon>
+                    </li>
+                  );
+                }
+                if (item.type === "theme") {
+                  return (
+                    <li key={item.id}>
+                      <DarkmodeToggle onClick={toggleTheme}>
+                        <p>Dark mode {isDarkMode ? "on" : "off"}</p>
+                      </DarkmodeToggle>
+                    </li>
+                  );
+                }
+
+                return (
+                  <li key={item.id}>
+                    <a
+                      href={item.path}
+                      className={currentPath === item.path ? "active" : ""}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </Nav>
         </MobileFlexedNav>
@@ -53,6 +69,8 @@ const HeaderWrapper = styled.header`
   padding: 1rem;
   z-index: 999;
 
+  text-transform: uppercase;
+
   color: white;
   mix-blend-mode: difference;
 
@@ -63,10 +81,12 @@ const HeaderWrapper = styled.header`
 
 const MobileFlexedNav = styled.div`
   width: 100%;
+
   @media (max-width: 768px) {
     display: flex;
-    flex-direction: row-reverse;
     justify-content: space-between;
+    // for menu staying in right corner
+    flex-direction: row-reverse;
   }
 `;
 
@@ -107,15 +127,20 @@ const HamburgerToggle = styled.p`
   }
 `;
 
-const Icon = styled.svg`
+const Icon = styled.a`
   font-size: 1.5rem;
 
   // Utan dessa orsakar svg att height och width blir större än fit content
+  // Kanske inte behöver
   width: 1.5rem;
   height: 1.5rem;
 
-  @media (max-width: 768px) {
-    display: none;
+  // not working om det är styled svg instället för a
+  // test
+  svg {
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 `;
 

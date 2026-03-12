@@ -1,31 +1,27 @@
 import { motion } from "framer-motion";
+import { IoStarSharp } from "react-icons/io5";
 import styled from "styled-components";
 
 export function Cursor({ variants, cursorVariant }) {
   return (
-    <>
-      <StyledCursor>
-        <motion.div
-          className={`cursor`}
-          variants={variants}
-          animate={cursorVariant}
-        />
-      </StyledCursor>
-    </>
+    <StyledCursor variants={variants} animate={cursorVariant}>
+      <IoStarSharp className="cursor-icon" />
+    </StyledCursor>
   );
 }
 
-const StyledCursor = styled.div`
-  .cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    height: 26px;
+const StyledCursor = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  pointer-events: none;
+
+  .cursor-icon {
     width: 26px;
-    border-radius: 50%;
-    pointer-events: none;
-    background-color: #000000;
+    height: 26px;
+    color: ${({ theme }) => theme.text};
+    display: block;
   }
 `;
 
