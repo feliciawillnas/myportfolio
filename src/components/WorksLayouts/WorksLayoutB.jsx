@@ -1,13 +1,10 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import VisitPage from "../VisitPage";
 
 export default function WorksLayoutB({ project }) {
   return (
     <Main>
       <Wallpaper>
-        {/* Visit page component */}
-        <VisitPage project={project} />
         <motion.img
           src={project.wallpaper}
           initial={{ filter: "blur(80px)" }}

@@ -1,14 +1,11 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import VisitPage from "../VisitPage";
 
 export default function WorksLayoutA({ project }) {
   return (
     <div>
       {/* Big header image */}
       <ProjectImageWrapper>
-        {/* Visit page component */}
-        <VisitPage project={project} />
         <motion.img
           initial={{ filter: "blur(80px)" }}
           whileInView={{ filter: "none", delay: 0.1 }}
