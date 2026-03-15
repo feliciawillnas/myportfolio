@@ -28,21 +28,25 @@ html, body, #root {
   }
 
   h1 {
-    font-family: "Source Code Pro", monospace;
-    letter-spacing: 0.04rem;
-    font-weight: 700;
-    font-size: 22px;
+    /* font-family: "Source Code Pro", monospace; */
+  /* font-family: "Rock 3D", system-ui; */
+    font-family: Arial, Helvetica, sans-serif;
+
+    letter-spacing: -0.1rem;
+    font-weight: 600;
+    font-size: 52px;
 
     @media (max-width: 768px) {
-      font-size: 18px;
+      /* font-size: 18px; */
     }
   }
 
+  // Contact page
   h2 {
-    font-family: "Quicksand", sans-serif;
-    font-size: 50px;
-    letter-spacing: 0.3rem;
-    line-height: 1.1;
+    font-family: "Source Code Pro", monospace;
+    letter-spacing: 0.04rem;
+    font-weight: 400;
+    font-size: 40px;
 
     @media (max-width: 768px) {
       font-size: 30px;
@@ -60,7 +64,7 @@ html, body, #root {
     letter-spacing: 0.04rem;
     font-weight: 400;
 
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     
     @media (max-width: 768px) {
       font-size: 13px;
@@ -97,7 +101,7 @@ html, body, #root {
     font-size: 15px;
     letter-spacing: 0.04rem;
     text-decoration: none;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     font-weight: 400;
     /* cursor: pointer; */
 
@@ -105,6 +109,7 @@ html, body, #root {
       font-size: 13px;
     }
   }
+  
 
   ul {
     list-style: none;

@@ -7,28 +7,28 @@ export default function SvgFilters() {
             <feTurbulence
               type="fractalNoise"
               baseFrequency="0.9"
-              numOctaves="30"
+              numOctaves="100"
             />
-            <feDisplacementMap in="SourceGraphic" scale="30" />
+            <feDisplacementMap in="SourceGraphic" scale="5" />
           </filter>
 
           <filter id="wonky">
             <feTurbulence
               baseFrequency="0.01 0.001"
-              numOctaves="3"
+              numOctaves="5"
               result="noise"
             />
             <feDisplacementMap
               in="SourceGraphic"
               in2="noise"
-              scale="10"
+              scale="20"
               xChannelSelector="R"
               yChannelSelector="R"
             />
           </filter>
 
           <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+            <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
             <feColorMatrix
               in="blur"
               mode="matrix"
@@ -36,7 +36,7 @@ export default function SvgFilters() {
                 0 0 0 0 0
                 0 0 0 0 0
                 0 0 0 0 0
-                0 0 0 20 -10
+                0 0 0 18 -10
               "
             />
           </filter>

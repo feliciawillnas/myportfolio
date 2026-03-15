@@ -25,13 +25,12 @@ export const useCursor = () => {
       },
     },
     text: {
-      // adjusted metrics for the text variant
-      height: 70,
-      width: 70,
-      x: mousePosition.x - 35, // offset is half of the size
-      y: mousePosition.y - 35,
-      backgroundColor: "#ffffff",
+      x: mousePosition.x - 13,
+      y: mousePosition.y - 13,
+      scale: 2,
+      rotate: 50,
       mixBlendMode: "difference",
+
       transition: {
         type: "spring",
         stiffness: 300, // lower value makes it more springy
