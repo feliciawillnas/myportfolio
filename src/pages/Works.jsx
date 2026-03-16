@@ -2,11 +2,13 @@ import { RiExternalLinkFill } from "react-icons/ri";
 import styled from "styled-components";
 import WorksLayoutA from "../components/WorksLayouts/WorksLayoutA";
 import WorksLayoutB from "../components/WorksLayouts/WorksLayoutB";
+import WorksLayoutC from "../components/WorksLayouts/WorksLayoutC";
 import projectData from "../data/projectData.json";
 
 const layouts = {
   A: WorksLayoutA,
   B: WorksLayoutB,
+  C: WorksLayoutC,
 };
 
 export default function Works() {
