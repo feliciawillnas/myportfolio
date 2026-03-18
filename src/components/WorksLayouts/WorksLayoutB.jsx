@@ -9,7 +9,7 @@ export default function WorksLayoutB({ project }) {
           src={project.wallpaper}
           initial={{ filter: "blur(80px)" }}
           whileInView={{ filter: "none", delay: 0.1 }}
-          alt=""
+          alt="Wallpaper image for the project"
         />
       </Wallpaper>
       <Wrapper>
@@ -17,12 +17,13 @@ export default function WorksLayoutB({ project }) {
           src={project.image}
           initial={{ filter: "blur(80px)" }}
           whileInView={{ filter: "none", delay: 0.1 }}
+          alt="Main image for the project"
         />
         <motion.video
           initial={{ filter: "blur(80px)" }}
           whileInView={{ filter: "none", delay: 0.1 }}
           src={project.video}
-          alt=""
+          alt="Video depiction of the project"
           autoPlay
           loop
           muted

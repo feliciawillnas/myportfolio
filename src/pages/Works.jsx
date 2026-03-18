@@ -33,7 +33,6 @@ export default function Works() {
                     <RiExternalLinkFill />
                   </a>
                 </li>
-                <div></div>
                 <li>
                   <a
                     href={project.github_link}
@@ -72,6 +71,7 @@ const Main = styled.main`
 
   @media (max-width: 768px) {
     padding: 0.7rem;
+    margin-top: 5.5rem;
   }
 `;
 
@@ -80,15 +80,27 @@ const ProjectWrapper = styled.div`
   grid-template-columns: 18rem 1fr;
   margin-bottom: 1rem;
 
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    // Between project number and title
+    margin-top: 0.5rem;
+    // Between project description and images
+    margin-bottom: 0.5rem;
+  }
+
+  ul {
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+
   .hideOnMobile {
     @media (max-width: 768px) {
       display: none;
     }
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 1rem;
   }
 
   // For the links
