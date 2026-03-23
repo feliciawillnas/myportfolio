@@ -28,6 +28,7 @@ const ProjectImageWrapper = styled.div`
     width: 100%;
     height: auto;
     object-fit: cover;
+    border: 5rem solid ${({ theme }) => theme.details};
   }
 
   &:hover {

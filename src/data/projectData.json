@@ -14,7 +14,7 @@
   },
   {
     "id": 2,
-    "title": "Web Museum",
+    "title": "Web Museum (WIP)",
     "text": "A web museum showcasing various artworks. Created with the intention of learning more about parallax effects and API usage. Created using the Art Institute of Chicago API.",
     "tech": "React, JavaScript, Styled Components, Motion",
     "wallpaper": "/projects/webmuseum/wallpaper.jpg",
@@ -22,8 +22,8 @@
     "video": "/projects/webmuseum/header_video.mov",
     "thumbnailFirst": "",
     "thumbnailSecond": "",
-    "website_link": "https://webpage2.com",
-    "github_link": "",
+    "website_link": "",
+    "github_link": "https://github.com/feliciawillnas/webmuseum",
     "category": "hobby",
     "layoutType": "B"
   },
@@ -37,8 +37,8 @@
     "video": "",
     "thumbnailFirst": "",
     "thumbnailSecond": "",
-    "website_link": "https://webpage3.com",
-    "github_link": "",
+    "website_link": "",
+    "github_link": "https://github.com/feliciawillnas/myportfolio",
     "category": "hobby",
     "layoutType": "C"
   }
