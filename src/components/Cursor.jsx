@@ -2,12 +2,32 @@ import { motion } from "framer-motion";
 import { IoStarSharp } from "react-icons/io5";
 import styled from "styled-components";
 
-export function Cursor({ variants, cursorVariant, hidden }) {
+export function Cursor({
+  variants,
+  cursorVariant,
+  hidden,
+  starRef,
+  cursorActive,
+}) {
+  const getStarCenter = () => {
+    if (!starRef?.current) return { x: 0, y: 0 };
+    const rect = starRef.current.getBoundingClientRect();
+    return {
+      x: rect.left + rect.width / 2 - 13,
+      y: rect.top + rect.height / 2 - 13,
+    };
+  };
+
   return (
     <StyledCursor
-      variants={variants}
-      animate={cursorVariant}
-      style={{ opacity: hidden ? 0 : 1 }}
+      animate={cursorActive ? cursorVariant : getStarCenter()}
+      variants={cursorActive ? variants : undefined}
+      transition={
+        cursorActive
+          ? undefined
+          : { type: "spring", stiffness: 150, damping: 18 }
+      }
+      // style={{ opacity: hidden ? 0 : 1 }}
     >
       <IoStarSharp className="cursor-icon" />
     </StyledCursor>

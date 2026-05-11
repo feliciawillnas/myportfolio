@@ -1,9 +1,23 @@
-import { useState } from "react";
+import { useEffect, useRef } from "react";
 import { IoStarSharp } from "react-icons/io5";
 import styled from "styled-components";
 
-export default function Header({ currentPath, toggleTheme, isDarkMode }) {
-  const [open, setOpen] = useState(false);
+export default function Header({
+  currentPath,
+  toggleTheme,
+  isDarkMode,
+  onStarRef,
+  cursorActive,
+}) {
+  const starRef = useRef(null);
+
+  // console.log("cursorActive prop in Header:", cursorActive);
+
+  useEffect(() => {
+    if (starRef.current && onStarRef) {
+      onStarRef(starRef.current);
+    }
+  }, []);
 
   const navItems = [
     { id: "home", label: "home", type: "link", path: "/" },
@@ -26,8 +40,17 @@ export default function Header({ currentPath, toggleTheme, isDarkMode }) {
                 // Might merge icon & theme if statement
                 if (item.type === "icon") {
                   return (
-                    <li key={item.id} className="hideOnMobile">
-                      <Icon href={item.path}>
+                    <li
+                      key={item.id}
+                      className="hideOnMobile"
+                      style={{
+                        opacity: cursorActive ? 0 : 1,
+                        transition: cursorActive
+                          ? "none"
+                          : "opacity 0.1s ease 0.6s",
+                      }}
+                    >
+                      <Icon href={item.path} ref={starRef}>
                         <IoStarSharp />
                       </Icon>
                     </li>
@@ -71,7 +94,6 @@ const HeaderWrapper = styled.header`
   font-size: 15px;
   text-transform: uppercase;
   mix-blend-mode: difference;
-  color: white;
 
   @media (max-width: 768px) {
     padding: 0.7rem;
@@ -136,7 +158,9 @@ const HamburgerToggle = styled.p`
 `;
 
 const Icon = styled.a`
+  // kan inte ändra a för den har annan padding
   font-size: 1.5rem;
+  color: ${({ theme }) => theme.cursor};
 `;
 
 const DarkmodeToggle = styled.div`

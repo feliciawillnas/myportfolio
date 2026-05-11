@@ -1,47 +1,65 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-
 import { Cursor } from "../components/Cursor";
 import { useCursor } from "../hooks/useCursor";
 
-export default function Contact() {
-  const { variants, cursorVariant, textEnter, textLeave } = useCursor();
+export default function Contact({ starRef, onCursorActive }) {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isHeaderHovered, setIsHeaderHovered] = useState(false);
+  const [mouseOnPage, setMouseOnPage] = useState(false);
 
-  // Detect if the user is hovering over the header
+  const cursorActive = mouseOnPage && !isHeaderHovered;
+
+  // Track mouse position to detect header hover and page presence
   useEffect(() => {
     const header = document.querySelector("header");
-    if (!header) return;
 
-    const onEnter = () => setIsHeaderHovered(true);
-    const onLeave = () => setIsHeaderHovered(false);
+    const onMouseMove = (e) => {
+      setMouseOnPage(true);
 
-    header.addEventListener("mouseenter", onEnter);
-    header.addEventListener("mouseleave", onLeave);
-
-    return () => {
-      header.removeEventListener("mouseenter", onEnter);
-      header.removeEventListener("mouseleave", onLeave);
+      if (!header) return;
+      const rect = header.getBoundingClientRect();
+      const isOverHeader =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom;
+      setIsHeaderHovered(isOverHeader);
     };
+
+    const onLeave = () => setMouseOnPage(false);
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseleave", onLeave);
+    return () => {
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseleave", onLeave);
+    };
+  }, []);
+
+  // Notify App of cursorActive state
+  useEffect(() => {
+    onCursorActive(cursorActive);
+  }, [cursorActive]);
+
+  // Reset when leaving contact page
+  useEffect(() => {
+    return () => onCursorActive(false);
   }, []);
 
   // Detect if the user is on a desktop device
   useEffect(() => {
     const mediaQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
-
-    const handleChange = (e) => {
-      setIsDesktop(e.matches);
-    };
-
+    const handleChange = (e) => setIsDesktop(e.matches);
     setIsDesktop(mediaQuery.matches);
-
     mediaQuery.addEventListener("change", handleChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleChange);
-    };
+    return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
+
+  const { variants, cursorVariant, textEnter, textLeave } = useCursor(
+    starRef,
+    cursorActive,
+  );
 
   const links = [
     {
@@ -53,51 +71,50 @@ export default function Contact() {
       label: "GitHub",
     },
     {
-      href: "/",
+      href: "",
       label: "Resume",
     },
     {
-      href: "/",
+      href: "",
       label: "Email",
     },
   ];
 
   return (
-    <>
-      <Main $isDesktop={isDesktop}>
-        {isDesktop && (
-          <Cursor
-            variants={variants}
-            cursorVariant={cursorVariant}
-            hidden={isHeaderHovered}
-          />
-        )}
+    <Main $isDesktop={isDesktop}>
+      {isDesktop && (
+        <Cursor
+          variants={variants}
+          cursorVariant={cursorVariant}
+          hidden={isHeaderHovered}
+          starRef={starRef}
+          cursorActive={cursorActive}
+        />
+      )}
 
-        <ul>
-          {links.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onMouseEnter={textEnter}
-                onMouseLeave={textLeave}
-              >
-                <LinkStyling>
-                  <h2>{link.label}</h2>
-                </LinkStyling>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </Main>
-    </>
+      <ul>
+        {links.map((link) => (
+          <li key={link.label}>
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              onMouseEnter={textEnter}
+              onMouseLeave={textLeave}
+            >
+              <LinkStyling>
+                <h2>{link.label}</h2>
+              </LinkStyling>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </Main>
   );
 }
 
 const Main = styled.main`
   cursor: ${({ $isDesktop }) => ($isDesktop ? "none" : "auto")};
-  /* cursor: none; */
   height: 100vh;
 
   display: flex;

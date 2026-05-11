@@ -1,17 +1,28 @@
 import { useEffect, useState } from "react";
 
-export const useCursor = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+export const useCursor = (starRef, cursorActive) => {
+  const getStarCenter = () => {
+    if (!starRef?.current) return { x: 0, y: 0 };
+    const rect = starRef.current.getBoundingClientRect();
+    return {
+      x: rect.left + rect.width / 2 - 13,
+      y: rect.top + rect.height / 2 - 13,
+    };
+  };
+
+  const [mousePosition, setMousePosition] = useState(getStarCenter);
   const [cursorVariant, setCursorVariant] = useState("default");
 
   useEffect(() => {
+    // Only track mouse when cursor is active on the page
+    if (!cursorActive) return;
     const mouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
     window.addEventListener("mousemove", mouseMove);
     return () => window.removeEventListener("mousemove", mouseMove);
-  }, []);
+  }, [cursorActive]);
 
   const variants = {
     default: {
