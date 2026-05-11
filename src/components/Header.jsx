@@ -18,7 +18,7 @@ export default function Header({ currentPath, toggleTheme, isDarkMode }) {
       <HeaderWrapper>
         <MobileFlexedNav>
           <HamburgerToggle onClick={() => setOpen(!open)}>
-            <p>{open ? "Close" : "Menu"}</p>
+            {open ? "Close" : "Menu"}
           </HamburgerToggle>
           <Nav open={open}>
             <ul>
@@ -35,9 +35,9 @@ export default function Header({ currentPath, toggleTheme, isDarkMode }) {
                 }
                 if (item.type === "theme") {
                   return (
-                    <li key={item.id} className="hideOnMobile">
+                    <li key={item.id}>
                       <DarkmodeToggle onClick={toggleTheme}>
-                        <p>Dark mode {isDarkMode ? "on" : "off"}</p>
+                        Dark mode {isDarkMode ? "on" : "off"}
                       </DarkmodeToggle>
                     </li>
                   );
@@ -128,6 +128,8 @@ const HamburgerToggle = styled.p`
   text-transform: uppercase;
   cursor: pointer;
 
+  color: white;
+
   @media (max-width: 768px) {
     display: block;
   }
@@ -139,9 +141,9 @@ const Icon = styled.a`
 
 const DarkmodeToggle = styled.div`
   cursor: pointer;
-  text-transform: uppercase;
 
-  @media (max-width: 768px) {
-    display: none;
-  }
+  font-family: "Source Code Pro", monospace;
+  text-transform: uppercase;
+  color: white;
+  mix-blend-mode: difference;
 `;

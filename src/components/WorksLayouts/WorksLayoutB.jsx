@@ -42,6 +42,7 @@ export default function WorksLayoutB({ project }) {
           autoPlay
           loop
           muted
+          playsInline
         />
       </Wrapper>
     </Main>

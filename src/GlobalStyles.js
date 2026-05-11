@@ -52,7 +52,6 @@ h2 {
   color: ${({ theme }) => theme.text};
   letter-spacing: -0.1rem;
   font-weight: 600;
-  
   font-size: 52px;
 }
 `;
