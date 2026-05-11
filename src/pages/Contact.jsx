@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { Cursor } from "../components/Cursor";
@@ -5,6 +6,42 @@ import { useCursor } from "../hooks/useCursor";
 
 export default function Contact() {
   const { variants, cursorVariant, textEnter, textLeave } = useCursor();
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [isHeaderHovered, setIsHeaderHovered] = useState(false);
+
+  // Detect if the user is hovering over the header
+  useEffect(() => {
+    const header = document.querySelector("header");
+    if (!header) return;
+
+    const onEnter = () => setIsHeaderHovered(true);
+    const onLeave = () => setIsHeaderHovered(false);
+
+    header.addEventListener("mouseenter", onEnter);
+    header.addEventListener("mouseleave", onLeave);
+
+    return () => {
+      header.removeEventListener("mouseenter", onEnter);
+      header.removeEventListener("mouseleave", onLeave);
+    };
+  }, []);
+
+  // Detect if the user is on a desktop device
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+    const handleChange = (e) => {
+      setIsDesktop(e.matches);
+    };
+
+    setIsDesktop(mediaQuery.matches);
+
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
 
   const links = [
     {
@@ -27,8 +64,14 @@ export default function Contact() {
 
   return (
     <>
-      <Main>
-        <Cursor variants={variants} cursorVariant={cursorVariant} />
+      <Main $isDesktop={isDesktop}>
+        {isDesktop && (
+          <Cursor
+            variants={variants}
+            cursorVariant={cursorVariant}
+            hidden={isHeaderHovered}
+          />
+        )}
 
         <ul>
           {links.map((link) => (
@@ -41,7 +84,7 @@ export default function Contact() {
                 onMouseLeave={textLeave}
               >
                 <LinkStyling>
-                  <h1>{link.label}</h1>
+                  <h2>{link.label}</h2>
                 </LinkStyling>
               </a>
             </li>
@@ -53,7 +96,8 @@ export default function Contact() {
 }
 
 const Main = styled.main`
-  cursor: none;
+  cursor: ${({ $isDesktop }) => ($isDesktop ? "none" : "auto")};
+  /* cursor: none; */
   height: 100vh;
 
   display: flex;

@@ -12,8 +12,9 @@
     "category": "freelance",
     "layoutType": "A"
   },
+
   {
-    "id": 2,
+    "id": 3,
     "title": "Web Museum (WIP)",
     "text": "A web museum showcasing various artworks. Created with the intention of learning more about parallax effects and API usage. Created using the Art Institute of Chicago API.",
     "tech": "React, JavaScript, Styled Components, Motion",
@@ -28,7 +29,7 @@
     "layoutType": "B"
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "Portfolio",
     "text": "The portfolio you are currently visiting.",
     "tech": "React, JavaScript, Styled Components, Motion",

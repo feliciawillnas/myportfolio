@@ -3,12 +3,14 @@ import styled from "styled-components";
 import WorksLayoutA from "../components/WorksLayouts/WorksLayoutA";
 import WorksLayoutB from "../components/WorksLayouts/WorksLayoutB";
 import WorksLayoutC from "../components/WorksLayouts/WorksLayoutC";
+import WorksLayoutD from "../components/WorksLayouts/WorksLayoutD";
 import projectData from "../data/projectData.json";
 
 const layouts = {
   A: WorksLayoutA,
   B: WorksLayoutB,
   C: WorksLayoutC,
+  D: WorksLayoutD,
 };
 
 export default function Works() {
@@ -65,6 +67,7 @@ const Main = styled.main`
   padding: 1rem;
   margin-top: 5rem;
   width: 100%;
+  font-size: 15px;
 
   // Gap between each project
   gap: 3rem;
@@ -72,6 +75,7 @@ const Main = styled.main`
   @media (max-width: 768px) {
     padding: 0.7rem;
     margin-top: 5.5rem;
+    font-size: 14px;
   }
 `;
 
@@ -113,10 +117,6 @@ const ProjectWrapper = styled.div`
   .disabled {
     pointer-events: none;
     color: ${({ theme }) => theme.disabled};
-  }
-
-  p {
-    color: ${({ theme }) => theme.text};
   }
 
   li {

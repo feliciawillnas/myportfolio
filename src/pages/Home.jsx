@@ -5,10 +5,10 @@ export default function Home() {
     <>
       <Main>
         <PageTitle>
-          <h1>
+          <h2>
             Hi, welcome to my portfolio. My name is Felicia Willnäs and I'm a
             front end developer based in Gothenburg.
-          </h1>
+          </h2>
         </PageTitle>
       </Main>
     </>
@@ -27,7 +27,7 @@ const PageTitle = styled.div`
   line-height: 1.3;
   /* filter: url(#wonky); */
 
-  h1 {
+  h2 {
     margin-top: 5rem;
     padding: 1rem;
   }

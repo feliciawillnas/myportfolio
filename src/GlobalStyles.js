@@ -7,136 +7,52 @@ html, body, #root {
   margin: 0;
 }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  body {
-    background-color: ${({ theme }) => theme.body};
-  }
+body {
+  background-color: ${({ theme }) => theme.body};
+}
 
-  /* Typography */
-  h1, h2, h3, h4, h5, span {
-    color: ${({ theme }) => theme.text};
-  }
+img {
+  border-radius: 2px;
+}
 
-  // Kan inte sätta färg här pga mix blend mode i header
-  p {
-    /* color: ${({ theme }) => theme.text}; */
-  }
+video {
+  border-radius: 2px;
+}
 
-  h1 {
-    /* font-family: "Source Code Pro", monospace; */
-  /* font-family: "Rock 3D", system-ui; */
-    font-family: Arial, Helvetica, sans-serif;
+ul {
+  list-style: none;
+}
 
-    letter-spacing: -0.1rem;
-    font-weight: 600;
-    font-size: 52px;
+a {
+  text-decoration: none;
+}
 
-    @media (max-width: 768px) {
-      /* font-size: 18px; */
-    }
-  }
+/* Typography */
+/* Font size is specified in each component */
+h1, h3, h4, h5, a, span {
+  font-family: "Source Code Pro", monospace;
+  color: ${({ theme }) => theme.text};
+  letter-spacing: 0.04rem;
+  font-weight: 400;
+}
 
-  // Contact page
-  h2 {
-    font-family: "Source Code Pro", monospace;
-    letter-spacing: 0.04rem;
-    font-weight: 400;
-    font-size: 40px;
+p {
+  font-family: "Source Code Pro", monospace;
+  color: ${({ theme }) => theme.text};
+}
 
-    @media (max-width: 768px) {
-      font-size: 30px;
-    }
-  }
-
-  h3 {
-    font-family: "Source Code Pro", monospace;
-    font-size: 3rem;
-  }
-
-  h4 {
-    font-family: "Source Code Pro", monospace;
-    font-size: 15px;
-    letter-spacing: 0.04rem;
-    font-weight: 400;
-
-    /* text-transform: uppercase; */
-    
-    @media (max-width: 768px) {
-      font-size: 13px;
-    }
-  }
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: ${({ theme }) => theme.text};
+  letter-spacing: -0.1rem;
+  font-weight: 600;
   
-  h6 {
-    font-family: "Source Code Pro", monospace;
-    font-weight: 400;
-    font-size: 15px;
-    /* color: ${({ theme }) => theme.primary}; */
-    /* color: ${({ theme }) => theme.text}; */
-  }
-
-  span {
-    font-family: "Inter", sans-serif;
-    font-size: 15px;
-  }
-
-  p {
-    font-family: "Source Code Pro", monospace;
-    font-size: 15px;
-    letter-spacing: 0.04rem;
-    font-weight: 400;
-
-    @media (max-width: 768px) {
-      font-size: 13px;
-    }
-  }
-
-  a {
-    font-family: "Source Code Pro", monospace;
-    color: ${({ theme }) => theme.text};
-    font-size: 15px;
-    letter-spacing: 0.04rem;
-    text-decoration: none;
-    /* text-transform: uppercase; */
-    font-weight: 400;
-    /* cursor: pointer; */
-
-    @media (max-width: 768px) {
-      font-size: 13px;
-    }
-  }
-  
-
-  ul {
-    list-style: none;
-  }
-
-  li {
-    list-style: none;
-  }
-
-  pre {
-    font-size: 12px;
-    letter-spacing: 0.005rem;
-    font-weight: 700;
-    overflow-x: auto;
-
-    color: ${({ theme }) => theme.text};
-
-    @media (max-width: 768px) {
-      font-size: 4px;
-    }
-  }
-
-  img {
-    border-radius: 2px;
-  }
-
-  video {
-    border-radius: 2px;
-  }
+  font-size: 52px;
+}
 `;

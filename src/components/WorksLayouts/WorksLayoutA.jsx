@@ -6,12 +6,27 @@ export default function WorksLayoutA({ project }) {
     <div>
       {/* Big header image */}
       <ProjectImageWrapper>
-        <motion.img
-          initial={{ filter: "blur(80px)" }}
-          whileInView={{ filter: "none", delay: 0.1 }}
-          src={project.image}
-          alt="Header image of the project"
-        />
+        {project.website_link ? (
+          <a
+            href={project.website_link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <motion.img
+              initial={{ filter: "blur(80px)" }}
+              whileInView={{ filter: "none", delay: 0.1 }}
+              src={project.image}
+              alt="Header image of the project"
+            />
+          </a>
+        ) : (
+          <motion.img
+            initial={{ filter: "blur(80px)" }}
+            whileInView={{ filter: "none", delay: 0.1 }}
+            src={project.image}
+            alt="Header image of the project"
+          />
+        )}
       </ProjectImageWrapper>
       {/* Thumbnails */}
       <ThumbnailWrapper>

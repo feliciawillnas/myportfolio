@@ -13,12 +13,27 @@ export default function WorksLayoutB({ project }) {
         />
       </Wallpaper>
       <Wrapper>
-        <motion.img
-          src={project.image}
-          initial={{ filter: "blur(80px)" }}
-          whileInView={{ filter: "none", delay: 0.1 }}
-          alt="Main image for the project"
-        />
+        {project.website_link ? (
+          <a
+            href={project.website_link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <motion.img
+              src={project.image}
+              initial={{ filter: "blur(80px)" }}
+              whileInView={{ filter: "none", delay: 0.1 }}
+              alt="Main image for the project"
+            />
+          </a>
+        ) : (
+          <motion.img
+            src={project.image}
+            initial={{ filter: "blur(80px)" }}
+            whileInView={{ filter: "none", delay: 0.1 }}
+            alt="Main image for the project"
+          />
+        )}
         <motion.video
           initial={{ filter: "blur(80px)" }}
           whileInView={{ filter: "none", delay: 0.1 }}
@@ -44,10 +59,6 @@ const Wallpaper = styled.div`
   img {
     width: 100%;
     height: auto;
-  }
-
-  &:hover {
-    cursor: pointer;
   }
 
   @media (max-width: 768px) {

@@ -18,7 +18,7 @@ export default function Header({ currentPath, toggleTheme, isDarkMode }) {
       <HeaderWrapper>
         <MobileFlexedNav>
           <HamburgerToggle onClick={() => setOpen(!open)}>
-            {open ? "Close" : "Menu"}
+            <p>{open ? "Close" : "Menu"}</p>
           </HamburgerToggle>
           <Nav open={open}>
             <ul>
@@ -26,7 +26,7 @@ export default function Header({ currentPath, toggleTheme, isDarkMode }) {
                 // Might merge icon & theme if statement
                 if (item.type === "icon") {
                   return (
-                    <li key={item.id}>
+                    <li key={item.id} className="hideOnMobile">
                       <Icon href={item.path}>
                         <IoStarSharp />
                       </Icon>
@@ -35,7 +35,7 @@ export default function Header({ currentPath, toggleTheme, isDarkMode }) {
                 }
                 if (item.type === "theme") {
                   return (
-                    <li key={item.id}>
+                    <li key={item.id} className="hideOnMobile">
                       <DarkmodeToggle onClick={toggleTheme}>
                         <p>Dark mode {isDarkMode ? "on" : "off"}</p>
                       </DarkmodeToggle>
@@ -68,14 +68,14 @@ const HeaderWrapper = styled.header`
   top: 0;
   padding: 1rem;
   z-index: 999;
-
+  font-size: 15px;
   text-transform: uppercase;
-
-  color: white;
   mix-blend-mode: difference;
+  color: white;
 
   @media (max-width: 768px) {
     padding: 0.7rem;
+    font-size: 14px;
   }
 `;
 
@@ -105,6 +105,12 @@ const Nav = styled.nav`
       align-items: flex-start;
       gap: 0.1rem;
     }
+
+    .hideOnMobile {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
   }
 
   a {
@@ -129,19 +135,6 @@ const HamburgerToggle = styled.p`
 
 const Icon = styled.a`
   font-size: 1.5rem;
-
-  // Utan dessa orsakar svg att height och width blir större än fit content
-  // Kanske inte behöver
-  width: 1.5rem;
-  height: 1.5rem;
-
-  // not working om det är styled svg instället för a
-  // test
-  svg {
-    @media (max-width: 768px) {
-      display: none;
-    }
-  }
 `;
 
 const DarkmodeToggle = styled.div`
