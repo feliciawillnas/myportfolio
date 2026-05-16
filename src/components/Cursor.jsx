@@ -20,12 +20,25 @@ export function Cursor({
 
   return (
     <StyledCursor
-      animate={cursorActive ? cursorVariant : getStarCenter()}
+      animate={
+        cursorActive ? cursorVariant : { ...getStarCenter(), opacity: 0 } // fade out when resting
+      }
       variants={cursorActive ? variants : undefined}
       transition={
         cursorActive
           ? undefined
           : { type: "spring", stiffness: 150, damping: 18 }
+      }
+      variants={cursorActive ? variants : undefined}
+      transition={
+        cursorActive
+          ? undefined
+          : {
+              type: "spring",
+              stiffness: 150,
+              damping: 18,
+              opacity: { delay: 0.5, duration: 0.4 },
+            }
       }
       // style={{ opacity: hidden ? 0 : 1 }}
     >

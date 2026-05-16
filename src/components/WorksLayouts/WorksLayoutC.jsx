@@ -43,7 +43,12 @@ const ProjectImageWrapper = styled.div`
     width: 100%;
     height: auto;
     object-fit: cover;
-    border: 5rem solid ${({ theme }) => theme.details};
+    border: 5rem dotted ${({ theme }) => theme.details};
+    padding: 0.5rem;
+
+    @media (max-width: 768px) {
+      border: 2rem dotted ${({ theme }) => theme.details};
+    }
   }
 
   &:hover {

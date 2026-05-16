@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BiChevronDown } from "react-icons/bi";
 import styled from "styled-components";
 
@@ -39,6 +39,15 @@ export default function Categories() {
 const Main = styled.div`
   display: flex;
   flex-direction: column;
+
+  h4 {
+    font-size: 14px;
+    font-weight: 400;
+
+    @media (max-width: 768px) {
+      font-size: 13px;
+    }
+  }
 `;
 
 const CategoryHeader = styled.div`

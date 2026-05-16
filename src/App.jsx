@@ -9,7 +9,6 @@ import { ThemeProvider } from "styled-components";
 import Header from "./components/Header";
 import SvgFilters from "./components/SvgFilters";
 import { GlobalStyles } from "./GlobalStyles";
-import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Works from "./pages/Works";
@@ -53,7 +52,6 @@ export default function App() {
             }
           />
           <Route path="/works" element={<Works />} />
-          <Route path="/about" element={<About />} />
         </Routes>
       </Router>
     </ThemeProvider>

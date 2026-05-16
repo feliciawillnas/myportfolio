@@ -34,7 +34,7 @@ export default function Header({
           <HamburgerToggle onClick={() => setOpen(!open)}>
             {open ? "Close" : "Menu"}
           </HamburgerToggle>
-          <Nav open={open}>
+          <Nav $open={open}>
             <ul>
               {navItems.map((item) => {
                 // Might merge icon & theme if statement
@@ -47,7 +47,7 @@ export default function Header({
                         opacity: cursorActive ? 0 : 1,
                         transition: cursorActive
                           ? "none"
-                          : "opacity 0.1s ease 0.6s",
+                          : "opacity 0.6s ease 0.5s",
                       }}
                     >
                       <Icon href={item.path} ref={starRef}>
