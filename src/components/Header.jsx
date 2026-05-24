@@ -165,6 +165,7 @@ const Icon = styled.a`
 
 const DarkmodeToggle = styled.div`
   cursor: pointer;
+  width: 117px;
 
   font-family: "Source Code Pro", monospace;
   text-transform: uppercase;
