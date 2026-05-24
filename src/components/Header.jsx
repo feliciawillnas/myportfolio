@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import { IoStarSharp } from "react-icons/io5";
 import styled from "styled-components";
 
+import { useState } from "react";
+
 export default function Header({
   currentPath,
   toggleTheme,
@@ -10,6 +12,7 @@ export default function Header({
   cursorActive,
 }) {
   const starRef = useRef(null);
+  const [open, setOpen] = useState(false);
 
   // console.log("cursorActive prop in Header:", cursorActive);
 
@@ -122,7 +125,7 @@ const Nav = styled.nav`
     align-items: center;
 
     @media (max-width: 768px) {
-      display: ${({ open }) => (open ? "flex" : "none")};
+      display: ${({ $open }) => ($open ? "flex" : "none")};
       flex-direction: column;
       align-items: flex-start;
       gap: 0.1rem;

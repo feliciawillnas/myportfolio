@@ -6,6 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import SvgFilters from "./components/SvgFilters";
 import { GlobalStyles } from "./GlobalStyles";
@@ -53,6 +54,7 @@ export default function App() {
           />
           <Route path="/works" element={<Works />} />
         </Routes>
+        <Footer />
       </Router>
     </ThemeProvider>
   );
