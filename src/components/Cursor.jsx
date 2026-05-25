@@ -20,6 +20,7 @@ export function Cursor({
 
   return (
     <StyledCursor
+      initial={{ x: window.innerWidth / 2 - 42, y: 15 }}
       animate={
         cursorActive ? cursorVariant : { ...getStarCenter(), opacity: 0 } // fade out when resting
       }
@@ -40,7 +41,6 @@ export function Cursor({
               opacity: { delay: 0.5, duration: 0.4 },
             }
       }
-      // style={{ opacity: hidden ? 0 : 1 }}
     >
       <IoStarSharp className="cursor-icon" />
     </StyledCursor>
