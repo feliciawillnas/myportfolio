@@ -4,6 +4,7 @@ import WorksLayoutA from "../components/WorksLayouts/WorksLayoutA";
 import WorksLayoutB from "../components/WorksLayouts/WorksLayoutB";
 import WorksLayoutC from "../components/WorksLayouts/WorksLayoutC";
 import WorksLayoutD from "../components/WorksLayouts/WorksLayoutD";
+import WorksLayoutE from "../components/WorksLayouts/WorksLayoutE";
 import projectData from "../data/projectData.json";
 
 const layouts = {
@@ -11,6 +12,7 @@ const layouts = {
   B: WorksLayoutB,
   C: WorksLayoutC,
   D: WorksLayoutD,
+  E: WorksLayoutE,
 };
 
 export default function Works() {
