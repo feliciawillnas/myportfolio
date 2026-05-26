@@ -49,8 +49,16 @@ const Header = styled.div`
   display: flex;
   justify-content: center;
   gap: 1rem;
+
   img {
     width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+    img {
+      width: 33%;
+    }
   }
 `;
 

@@ -19,6 +19,10 @@ const Main = styled.main`
   height: 100vh;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    padding-bottom: 5rem;
+  }
 `;
 
 const PageTitle = styled.div`
