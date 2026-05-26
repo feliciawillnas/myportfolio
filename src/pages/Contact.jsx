@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { IoCheckmark, IoCopyOutline } from "react-icons/io5";
 import styled from "styled-components";
 import { Cursor } from "../components/Cursor";
 import { useCursor } from "../hooks/useCursor";
@@ -12,12 +11,6 @@ export default function Contact({ starRef, onCursorActive }) {
   const [isFooterHovered, setIsFooterHovered] = useState(false);
 
   const cursorActive = mouseOnPage && !isHeaderHovered && !isFooterHovered;
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText("feliciawillnas.portfolio@gmail.com");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   useEffect(() => {
     const header = document.querySelector("header");
@@ -82,7 +75,7 @@ export default function Contact({ starRef, onCursorActive }) {
     { href: "https://linkedin.com/in/feliciawillnas/", label: "LinkedIn" },
     { href: "https://github.com/feliciawillnas", label: "GitHub" },
     { href: "/resume.pdf", label: "Resume" },
-    { href: "", label: "Email", isEmail: true },
+    { href: "mailto:feliciawillnas.portfolio@gmail.com", label: "Email" },
   ];
 
   return (
@@ -98,44 +91,21 @@ export default function Contact({ starRef, onCursorActive }) {
       )}
 
       <ul>
-        {links.map((link) =>
-          link.isEmail ? (
-            <li key={link.label}>
-              <EmailWrapper
-                onClick={handleCopy}
-                $copied={copied}
-                onMouseEnter={textEnter}
-                onMouseLeave={textLeave}
-              >
-                <LinkStyling>
-                  <h2>{link.label}</h2>
-                </LinkStyling>
-                <Email
-                  $isDesktop={isDesktop}
-                  onMouseEnter={textEnter}
-                  onMouseLeave={textLeave}
-                >
-                  feliciawillnas.portfolio@gmail.com
-                  {copied ? <IoCheckmark /> : <IoCopyOutline />}
-                </Email>
-              </EmailWrapper>
-            </li>
-          ) : (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onMouseEnter={textEnter}
-                onMouseLeave={textLeave}
-              >
-                <LinkStyling>
-                  <h2>{link.label}</h2>
-                </LinkStyling>
-              </a>
-            </li>
-          ),
-        )}
+        {links.map((link) => (
+          <li key={link.label}>
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              onMouseEnter={textEnter}
+              onMouseLeave={textLeave}
+            >
+              <LinkStyling>
+                <h2>{link.label}</h2>
+              </LinkStyling>
+            </a>
+          </li>
+        ))}
       </ul>
     </Main>
   );
@@ -209,34 +179,5 @@ const LinkStyling = styled.div`
     transform: scale(1.1);
     // For the custom cursor
     cursor: none;
-  }
-`;
-
-const EmailWrapper = styled.div`
-  position: relative;
-`;
-const Email = styled.div`
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 13px;
-  font-family: "Source Code Pro", monospace;
-  letter-spacing: 0.04rem;
-  transition: opacity 0.2s;
-  color: ${({ theme }) => theme.text};
-  text-transform: uppercase;
-
-  // For hiding until hover on desktop
-  opacity: 0;
-
-  ${EmailWrapper}:hover & {
-    opacity: 1;
-  }
-
-  // Always show on mobile
-  @media (max-width: 768px) {
-    position: static;
-    opacity: 1;
   }
 `;

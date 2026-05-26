@@ -38,7 +38,6 @@ export default function WorksLayoutB({ project }) {
           initial={{ filter: "blur(80px)" }}
           whileInView={{ filter: "none", delay: 0.1 }}
           src={project.video}
-          alt="Video depiction of the project"
           autoPlay
           loop
           muted

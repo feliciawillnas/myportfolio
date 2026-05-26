@@ -58,11 +58,20 @@ const Main = styled.footer`
   font-family: "Source Code Pro", monospace;
   font-weight: 400;
   letter-spacing: 0.04rem;
+
   ul {
     display: flex;
     flex-direction: row;
     gap: 2rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 0.2rem;
+      align-items: flex-end;
+      font-size: 14px;
+    }
   }
+
   a {
     color: white;
   }
